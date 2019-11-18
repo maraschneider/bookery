@@ -7,18 +7,16 @@
     <div class="ml-3">
       <h1><%= @book.title %></h1>
       <div>
-        <!-- ToDo: Add author -->
         <strong>Author: </strong>
-        <%#= @book.author %>
+        <%= @book.author %>
       </div>
       <div>
         <strong>Language: </strong>
         <%= @book.language %>
       </div>
       <div>
-        <!-- ToDo: Add genre -->
         <strong>Genre: </strong>
-        <%#= @book.genre %>
+        <%= @book.genre %>
       </div>
       <div>
         <strong> Description: </strong>
@@ -30,7 +28,7 @@
       </div>
       <%#= image_tag "@book.image_url", alt: "book_cover"%>
     </div>
-    <div class="host-card my-3 p-3 bg-white">
+    <div class="host-card my-3 p-3 bg-white w-30" style="width: 400px">
       <div>
         <strong>The Book Host: </strong>
         <%= @book.user.email %>
@@ -43,22 +41,39 @@
           <!-- ToDo: Replace duration -->
           <strong>Rental duration: </strong>up to 4 weeks
         </div>
+        <div class="py-1">
+          <% if @book.rented %>
+          This book is currently <strong>not available</strong> for rent.
+          <% else  %>
+          This book is currently <strong>available</strong> for rent.
+          <% end %>
+        </div>
       <!-- TODO: Host-Avatar
         <div></div> -->
 
       </div>
 
     </div>
-    <div class="my-3">
-      <h3>Reviews</h3>
-      <!-- ToDo: Replace hard-coded reviews-->
-      <div class="review-card bg-white p-3 my-3">
-        <div><strong>5 stars</strong></div>
-        The book host was super friendly.
+    <div class="d-flex justify-content-between">
+      <div class="my-3">
+        <h3>Reviews</h3>
+        <!-- ToDo: Replace hard-coded reviews-->
+        <div class="review-card bg-white p-3 my-3" style="width: 600px">
+          <div><strong>5 stars</strong></div>
+          The book host was super friendly.
+        </div>
+        <div class="review-card bg-white p-3 my-3">
+          <div><strong>4 stars</strong></div>
+          The book host was on time. Book was great.
+        </div>
       </div>
-      <div class="review-card bg-white p-3 my-3">
-        <div><strong>4 stars</strong></div>
-        The book host was on time. Book was great.
+
+      <div class="my-3 my-3 p-3 bg-white" style="width: 400px">
+        <h3>Rent Book</h3>
+        <form action=></form>
+        <div>When would you like to pick up the book?</div>
+        <input type="text" class="my-1">
+        <button class="btn-secondary">Request Rental</button>
       </div>
     </div>
   </div>
