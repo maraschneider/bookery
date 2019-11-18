@@ -2,7 +2,7 @@ require 'faker'
 
 puts "deletes all records"
 User.destroy_all
-Books.destroy_all
+Book.destroy_all
 
 puts "creates fake users & fake books "
 
