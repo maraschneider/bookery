@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= simple_form_for(@books) do |f| %>
+        <%= f.input :title %>
+        <%= f.submit "Find a book", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
