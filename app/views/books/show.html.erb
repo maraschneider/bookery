@@ -1,79 +1,15 @@
 <div class="container">
   <div class="d-flex justify-content-between">
-    <!-- TODO : author, genre -->
-    <div class="mr-3">
-      <img src="<%= @book.image_url %>" alt="">
-    </div>
-    <div class="ml-3">
-      <h1><%= @book.title %></h1>
-      <div>
-        <strong>Author: </strong>
-        <%= @book.author %>
-      </div>
-      <div>
-        <strong>Language: </strong>
-        <%= @book.language %>
-      </div>
-      <div>
-        <strong>Genre: </strong>
-        <%= @book.genre %>
-      </div>
-      <div>
-        <strong> Description: </strong>
-        <%= @book.description %>
-      </div>
-      <div>
-        <strong>Publishing Year: </strong>
-        <%= @book.year %>
-      </div>
-      <%#= image_tag "@book.image_url", alt: "book_cover"%>
-    </div>
-    <div class="host-card my-3 p-3 bg-white w-30" style="width: 400px">
-      <div>
-        <strong>The Book Host: </strong>
-        <%= @book.user.email %>
-      </div>
-      <div>
-        <!-- ToDo: Replace Location -->
-        <strong>Location: </strong>Berlin, Neukölln</div>
-
-        <div>
-          <!-- ToDo: Replace duration -->
-          <strong>Rental duration: </strong>up to 4 weeks
-        </div>
-        <div class="py-1">
-          <% if @book.rented %>
-          This book is currently <strong>not available</strong> for rent.
-          <% else  %>
-          This book is currently <strong>available</strong> for rent.
-          <% end %>
-        </div>
-      <!-- TODO: Host-Avatar
-        <div></div> -->
-
-      </div>
-
-    </div>
-    <div class="d-flex justify-content-between">
-      <div class="my-3">
-        <h3>Reviews</h3>
-        <!-- ToDo: Replace hard-coded reviews-->
-        <div class="review-card bg-white p-3 my-3" style="width: 600px">
-          <div><strong>5 stars</strong></div>
-          The book host was super friendly.
-        </div>
-        <div class="review-card bg-white p-3 my-3">
-          <div><strong>4 stars</strong></div>
-          The book host was on time. Book was great.
-        </div>
-      </div>
-
-      <div class="my-3 my-3 p-3 bg-white" style="width: 400px">
-        <h3>Rent Book</h3>
-        <form action=></form>
-        <div>When would you like to pick up the book?</div>
-        <input type="text" class="my-1">
-        <button class="btn-secondary">Request Rental</button>
-      </div>
-    </div>
+    <%= render 'books/book_info' %>
+    <%= render 'books/author_info' %>
   </div>
+    <div class="d-flex justify-content-between">
+      <%= render 'shared/review_card' %>
+
+      <div class="bg-white p-3 my-3" style="width: 400px">
+        <h3>Availability</h3>
+        <div>TODO: Calender to be implemented ;-)</div>
+      </div>
+    </div>
+    <%= render'books/new_request' %>
+    </div>
