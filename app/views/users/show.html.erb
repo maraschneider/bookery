@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Hello, I am  <%= @user.first_name %></h1>
+  Since <%= @user.created_at.year %> on Bookery
+
+  <p>INSERT_NUMBER Bewertungen</p>
+
+  <% if @user.profile_pic == nil %>
+    <%= image_tag "https://cdn.designbyhumans.com/i/S0q2SgMDnZTMIquCovyU0uSSGP2U1OLM9LwY_VJDQ0MzC2MzoGyulZmpQQUQ6yRZGeoUWBkCAA.pr253160-2-2704838.jpg", class: "avatar" %>
+  <% else %>
+    <%= image_tag @user.profile_pic %>
+  <% end %>
+
+  <h2>Info</h2>
+  <p><%= @user.description %></p>
+
+  <p>Lives in <%= @user.location %></p>
+  <p>Speaks <%= @user.language %></p>
+
+  All of <%= @user.first_name %>'s books
+
+
+  <h2>INSERT_NUMBER reviews</h2>
+</div>
