@@ -1,0 +1,27 @@
+<div class="mr-3">
+  <img src="<%= @book.image_url %>" alt="">
+</div>
+<div class="ml-3">
+  <h1><%= @book.title %></h1>
+  <div>
+    <strong>Author: </strong>
+    <%= @book.author %>
+  </div>
+  <div>
+    <strong>Language: </strong>
+    <%= @book.language %>
+  </div>
+  <div>
+    <strong>Genre: </strong>
+    <%= @book.genre %>
+  </div>
+  <div>
+    <strong> Description: </strong>
+    <%= @book.description %>
+  </div>
+  <div>
+    <strong>Publishing Year: </strong>
+    <%= @book.year %>
+  </div>
+  <%#= image_tag "@book.image_url", alt: "book_cover"%>
+</div>
