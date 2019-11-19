@@ -33,7 +33,12 @@ class BooksController < ApplicationController
   end
 
   def update
-
+    @book.update(book_params)
+    if @book.save
+      redirect_to @book
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -48,7 +53,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :year, :location, :language, :image_url, :author, :genre)
+    params.require(:book).permit(:title, :year, :location, :language, :image_url, :author, :genre, :description)
   end
 
 end
