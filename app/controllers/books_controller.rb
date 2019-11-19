@@ -6,7 +6,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @rental = Rental.new()
+    @rental = current_user.rentals.new
+    @rental.book = @book
+    @user = current_user
+  end
 
   def search
     if params[:title].present?
@@ -16,11 +19,10 @@ class BooksController < ApplicationController
   end
 
   def show_selection
-
   end
 
   def new
-    @book = current_user.books.new()
+    @book = current_user.books.new
     authorize @book
   end
 
@@ -35,7 +37,6 @@ class BooksController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -61,5 +62,4 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :year, :location, :language, :image_url, :author, :genre, :description)
   end
-
 end

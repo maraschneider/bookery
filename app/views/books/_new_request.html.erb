@@ -2,17 +2,11 @@
   <div></div>
   <div class="bg-white p-3 my-3 h-100 position-relative" style="width: 400px">
     <h3>Rent Book</h3>
-
-    <!-- ToDo: Implement simple form to send rental request -->
-    <%#= simple_form_for(@rental) do |f| %>
-    <%#= f.label "When would you like to pick up the book?" %>
-    <%#= f.input :start_date %>
-    <%# end %>
-
-    <form class="form-inline my-3">
-      <label for="start-date">When would you like to pick up the book?</label>
-      <input class="form-control mr-sm-2 my-3" type="date" placeholder="Date" name="start-date">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Request</button>
-    </form>
+    <%= simple_form_for(@rental) do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :return_date %>
+      <%= f.input :book_id, as: :hidden %>
+      <%= f.submit "Request", class: "btn btn-secondary" %>
+    <% end %>
   </div>
 </div>
