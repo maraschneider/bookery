@@ -20,13 +20,15 @@
     <div class="border-bottom">
       All of <%= @user.first_name %>'s books
       <ol class="slides">
-        <li><%= image_tag "https://cdn.designbyhumans.com/i/S0q2SgMDnZTMIquCovyU0uSSGP2U1OLM9LwY_VJDQ0MzC2MzoGyulZmpQQUQ6yRZGeoUWBkCAA.pr253160-2-2704838.jpg" %></li>
-        <li><%= image_tag "https://cdn.designbyhumans.com/i/S0q2SgMDnZTMIquCovyU0uSSGP2U1OLM9LwY_VJDQ0MzC2MzoGyulZmpQQUQ6yRZGeoUWBkCAA.pr253160-2-2704838.jpg" %></li>
-        <li><%= image_tag "https://cdn.designbyhumans.com/i/S0q2SgMDnZTMIquCovyU0uSSGP2U1OLM9LwY_VJDQ0MzC2MzoGyulZmpQQUQ6yRZGeoUWBkCAA.pr253160-2-2704838.jpg" %></li>
+        <% @user.books.each do |book| %>
+          <li> <%= book.title %> </li>
+        <% end %>
       <ol>
     </div>
 
     <h2>INSERT_NUMBER reviews</h2>
+
+    <%= render 'review' %>
   </div>
 </div>
 </div>
