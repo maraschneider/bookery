@@ -29,20 +29,24 @@ end
 
 
 10.times do
-new_rental = Rental.create(book_id: Book.all.sample.id,
-                           user_id: User.all.sample.id,
+  user = User.all.sample.id
+  book = Book.all - user.books
+  new_rental = Rental.create(book_id: book,
+                           user_id: user,
                            start_date: Faker::Date.backward,
                            return_date: Faker::Date.forward)
 end
 
 Rental.all.each do |rental|
   host_review = Review.new(rating: rand(1..5),
-                            content: "Hi, I am a hoster writing a review")
+                            content: "Hi, I am a hoster writing a review",
+                            is_reader: false)
   host_review.rental = rental
   host_review.save
 
   reader_review = Review.new(rating: rand(1..5),
-                            content: "Hi, I am a reader wirting a review")
+                            content: "Hi, I am a reader wirting a review",
+                            is_reader: true)
   reader_review.rental = rental
   reader_review.save
 end
