@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for(@book) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :year %>
+    <%= f.input :genre %>
+    <%= f.input :language %>
+    <%= f.input :description %>
+    <%= f.input :image_url %>
+    <%= f.submit class:"btn btn-secondary" %>
+  <% end %>
+</div>
