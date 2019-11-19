@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="filter">
+  </div>
+  <h4>Books found: <%= @books.count %> results</h4>
+  <div class="results">
+  <div class="searchresult">
+    <ul>
+    <% @books.each do |book| %>
+    <li>
+
+      <div class="card mb-3 w-100%">
+        <div class="row no-gutters">
+
+          <div class="col-md-4">
+            <img src="<%= book.image_url %>" class="card-img" alt="Search Result">
+          <div class="card-body">
+            <%= link_to "See Book", book_path(book), class: "btn btn-primary" %>
+          </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title"><strong><%= book.title %></strong></h4>
+              <p><strong>Author: </strong><%= book.author %></p>
+              <p><strong>Genre: </strong><%= book.genre %></p>
+              <p><strong>Publishing Year: </strong><%= book.year %></p>
+              <p><strong>Language: </strong><%= book.language %></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </li>
+    <% end %>
+    </ul>
+    <img src="" alt="">
+  </div>
+  <div id="map">  </div>
+
+  </div>
+</div>
