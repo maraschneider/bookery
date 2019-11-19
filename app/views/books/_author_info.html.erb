@@ -1,14 +1,15 @@
 <div class="host-card my-3 p-3 bg-white w-30" style="width: 400px">
   <div>
     <strong>The Book Host: </strong>
-    <%= @book.user.email %>
+    <%= link_to "#{@book.user.first_name} #{@book.user.last_name}", user_path(@book.user) %>
+    <%= link_to (image_tag @book.user.profile_pic, class: "avatar", alt: "Profile picture"), user_path(@book.user) %>
   </div>
   <!-- TODO: Host-Avatar
   <div></div> -->
   <div>
     <!-- ToDo: Replace Location -->
     <strong>Location: </strong>
-    Berlin, Neukölln
+    <%= @book.user.location %>
   </div>
   <div>
     <!-- ToDo: Replace duration -->
