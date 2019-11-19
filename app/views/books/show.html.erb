@@ -1,7 +1,5 @@
 <div class="container">
-  <% if policy(@book).destroy? %>
-  <%= link_to "Delete book", @book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary my-3" %>
-<% end %>
+  <%= render 'shared/delete_book_btn' %>
   <div class="d-flex justify-content-between">
     <%= render 'books/book_info' %>
     <%= render 'books/author_info' %>
