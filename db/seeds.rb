@@ -26,3 +26,23 @@ languages = %w(english german polish french danish italian spanish)
     end
   end
 end
+
+
+10.times do
+new_rental = Rental.create(book_id: Book.all.sample.id,
+                           user_id: User.all.sample.id,
+                           start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
+end
+
+Rental.all.each do |rental|
+  host_review = Review.new(rating: rand(1..5),
+                            content: "Hi, I am a hoster writing a review")
+  host_review.rental = rental
+  host_review.save
+
+  reader_review = Review.new(rating: rand(1..5),
+                            content: "Hi, I am a reader wirting a review")
+  reader_review.rental = rental
+  reader_review.save
+end
