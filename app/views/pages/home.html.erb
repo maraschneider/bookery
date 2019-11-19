@@ -1,2 +1,11 @@
-<h1>Bookery</h1>
-<p>Enjoy a good read while sharing the love</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= simple_form_for(@books) do |f| %>
+        <%= f.input :title %>
+        <%= f.submit "Find a book", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
