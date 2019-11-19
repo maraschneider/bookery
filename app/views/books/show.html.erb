@@ -1,15 +1,17 @@
 <div class="container">
+  <%= render 'shared/delete_book_btn' %>
+  <%= render 'shared/edit_book_btn' %>
   <div class="d-flex justify-content-between">
     <%= render 'books/book_info' %>
     <%= render 'books/author_info' %>
   </div>
-    <div class="d-flex justify-content-between">
-      <%= render 'shared/review_card' %>
+  <div class="d-flex justify-content-between">
+    <%= render 'shared/review_card' %>
 
-      <div class="bg-white p-3 my-3" style="width: 400px">
-        <h3>Availability</h3>
-        <div>TODO: Calender to be implemented ;-)</div>
-      </div>
+    <div class="bg-white p-3 my-3" style="width: 400px">
+      <h3>Availability</h3>
+      <div>TODO: Calender to be implemented ;-)</div>
     </div>
-    <%= render'books/new_request' %>
-    </div>
+  </div>
+  <%= render'books/new_request' %>
+</div>

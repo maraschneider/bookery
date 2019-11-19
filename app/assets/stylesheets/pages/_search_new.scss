@@ -1,0 +1,36 @@
+.card {
+  border: none;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  }
+
+.searchresult {
+  width: 50%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#map {
+  width: 45%;
+  height: 500px;
+  background-color: grey;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+.searchresult ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
