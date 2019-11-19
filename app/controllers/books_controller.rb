@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   def index
     @books = policy_scope(Book)
@@ -7,6 +8,11 @@ class BooksController < ApplicationController
   def show
     @rental = Rental.new()
 
+  def search
+    if params[:title].present?
+      @title = params[:title]
+      @books = Book.where("title ILIKE ?", "%#{@title}%")
+    end
   end
 
   def show_selection
