@@ -1,0 +1,7 @@
+<% if policy(@book).destroy? %>
+  <%= link_to "Delete book",
+      @book,
+      method: :delete,
+      data: { confirm: 'Are you sure you want to delete this book?' },
+      class: "btn btn-secondary my-3" %>
+<% end %>
