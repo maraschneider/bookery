@@ -1,0 +1,25 @@
+<div class="host-card my-3 p-3 bg-white w-30" style="width: 400px">
+  <div>
+    <strong>The Book Host: </strong>
+    <%= @book.user.email %>
+  </div>
+  <!-- TODO: Host-Avatar
+  <div></div> -->
+  <div>
+    <!-- ToDo: Replace Location -->
+    <strong>Location: </strong>
+    Berlin, Neukölln
+  </div>
+  <div>
+    <!-- ToDo: Replace duration -->
+    <strong>Rental duration: </strong>up to 4 weeks
+  </div>
+  <div class="py-1">
+    <% if @book.rented %>
+      This book is currently <strong>not available</strong> for rent.
+    <% else  %>
+      This book is currently <strong>available</strong> for rent.
+    <% end %>
+  </div>
+</div>
+
