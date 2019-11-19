@@ -2,6 +2,45 @@
 body {
   background-image: url("https://images.unsplash.com/photo-1517770413964-df8ca61194a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
-  background-opacity: 0.5;
-  background-attachment: scroll;
+  background-image-opacity: 50%;
+}
+
+// Top row
+
+.top {
+  margin-top: 60px;
+}
+
+.form {
+  background-color: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+#sign-up {
+  color: black;
+  decoration: none;
+}
+
+h3 {
+  margin-top: 100px;
+  color: white;
+}
+
+// Book recommendation cards
+
+.book-card {
+  border: solid white 2px;
+  border-radius: 20px;
+  margin-bottom: 100px;
+}
+
+.book-card h4, p {
+  color: white;
+}
+
+.card-img-top {
+  border-radius: 20px  20px 0px 0px;
 }
