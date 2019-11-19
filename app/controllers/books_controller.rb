@@ -37,7 +37,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-
+    @book.destroy
   end
 
   private
