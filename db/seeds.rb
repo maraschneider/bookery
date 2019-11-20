@@ -29,10 +29,10 @@ end
 
 
 10.times do
-  user = User.all.sample.id
+  user = User.all.sample
   book = Book.all - user.books
   new_rental = Rental.create(book_id: book,
-                           user_id: user,
+                           user_id: user.id,
                            start_date: Faker::Date.backward,
                            return_date: Faker::Date.forward)
 end
