@@ -3,6 +3,8 @@ require 'faker'
 puts "deletes all records"
 User.destroy_all
 Book.destroy_all
+Rental.destroy_all
+Review.destroy_all
 
 puts "creates fake users & fake books & fake rentals & fake reviews "
 
@@ -17,7 +19,7 @@ languages = %w(english german polish french danish italian spanish)
                     location: Faker::Address.city,
                     language: "english",
                     description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.")
-
+print new_user
   if new_user
     10.times do
       book = Book.new(title: Faker::Book.title, language: languages.sample, description: "Ipsem lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam velit iste voluptatum enim, ipsa eveniet dolores doloremque quibusdam vitae deserunt pariatur, quaerat alias non porro minus aspernatur dolorem quasi! Aliquam. Ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, necessitatibus perspiciatis natus minima vel architecto! Accusamus quisquam soluta in reiciendis a dolores fugiat sapiente quasi. Ab distinctio neque, possimus voluptatum.", image_url: "https://picsum.photosgit /200")
