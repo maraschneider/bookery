@@ -27,6 +27,50 @@ languages = %w(english german polish french danish italian spanish)
   end
 end
 
+# For demo purpose only (to have nice pics for 4 book recommendations)
+
+first_book = Book.find(1)
+second_book = Book.find(2)
+third_book = Book.find(3)
+fourth_book = Book.find(4)
+
+
+first_book.image_url = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+
+second_book.image_url = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
+
+third_book.image_url = "https://images.unsplash.com/photo-1506076177893-89d54794ef41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80"
+
+fourth_book.image_url = "https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=330&q=80"
+
+
+first_book.description = "Started from the bottom now I am here. How I made it from a coding bootcamp to Silicon Valley's most elite tech circles."
+second_book.description = "A book that is about nothing. Let us be honest, no one will read this crap anyway."
+third_book.description = "This book is a homage to Nicolas (our slogan inspiration) and GoatLike (book cover inspiration)."
+fourth_book.description = "The best read if you get bored during live cooooooooooode. Only recommended for flash card skippers."
+
+
+first_book.year = 2018
+second_book.year = 2017
+third_book.year = 2016
+fourth_book.year = 2019
+
+first_book.author = "Dimitri Bosch"
+second_book.author = "Rich O'Grady"
+third_book.author = "Santiago Sanchez"
+fourth_book.author = "Toni Panacek"
+
+first_book.genre = "fiction"
+second_book.genre = "biography"
+third_book.genre = "fiction"
+fourth_book.genre = "biography"
+
+
+first_book.save
+second_book.save
+third_book.save
+fourth_book.save
+
 
 10.times do
   user = User.all.sample
@@ -39,7 +83,7 @@ end
 
 rental1 = Rental.new(book_id:1, user_id:2)
 rental1.save
-rental2 = Rental.new(book_id:2, user_id:1)
+rental2 = Rental.new(book_id:12, user_id:1)
 rental2.save
 rental3 = Rental.new(book_id:3, user_id:4)
 rental3.save
@@ -49,11 +93,11 @@ rental5 = Rental.new(book_id:5, user_id:5)
 rental5.save
 rental6 = Rental.new(book_id:6, user_id:2)
 rental6.save
-rental7 = Rental.new(book_id:7, user_id:1)
+rental7 = Rental.new(book_id:17, user_id:1)
 rental7.save
 rental8 = Rental.new(book_id:8, user_id:2)
 rental8.save
-rental9 = Rental.new(book_id:8, user_id:1)
+rental9 = Rental.new(book_id:18, user_id:1)
 rental9.save
 
 
