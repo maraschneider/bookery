@@ -17,7 +17,7 @@
       <% book.rentals.each do |rental| %>
         <div class="review-card border-bottom">
         <%= book.title %> to <%= rental.user.first_name %> >>
-        <%= rental.reviews.find_by(is_reader: true).rating %> <i class="far fa-star"></i>
+        <%= rental.reviews.find_by(is_reader: false).rating %> <i class="far fa-star"></i>
         <br>
         <%= rental.reviews.find_by(is_reader: false).content %>
         </div>
