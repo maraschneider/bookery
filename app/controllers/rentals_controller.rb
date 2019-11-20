@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   def index
-    @rentals = current_user.rentals.all
+    @rentals = policy_scope(Rental)
   end
 
   def show
