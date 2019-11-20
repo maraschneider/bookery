@@ -16,40 +16,40 @@
         </div>
       </div>
 
+<% if @books != [] %>
     <h3 class="header-white"><strong>Berlin</strong> trends:</h3>
-
     <div class="bottom row justify-content-between">
       <div class="book-card" style="width: 14rem;">
         <img class="card-img-top" src=<%= @books.first.image_url %>>
-        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
-          <h4><%= link_to @books.first.title, book_path(@books.first)%></h4>
+        <div class="card-body landing-card">
+          <h4 class="white-link"><%= link_to @books.first.title, book_path(@books.first)%></h4>
           <p class="card-text"><%= @books.first.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
         <img class="card-img-top" src=<%= @books.second.image_url %>>
-        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
-          <h4><%= link_to @books.second.title, book_path(@books.second)%></h4>
+        <div class="card-body landing-card">
+          <h4 class="white-link"><%= link_to @books.second.title, book_path(@books.second)%></h4>
           <p class="card-text"><%= @books.second.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
         <img class="card-img-top" src=<%= @books.third.image_url %>>
-        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
-          <h4><%= link_to @books.third.title, book_path(@books.third)%></h4>
+        <div class="card-body landing-card">
+          <h4 class="white-link"><%= link_to @books.third.title, book_path(@books.third)%></h4>
           <p class="card-text"><%= @books.third.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
         <img class="card-img-top" src=<%= @books.fourth.image_url %>>
-        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
-          <h4><%= link_to @books.fourth.title, book_path(@books.fourth)%></h4>
+        <div class="card-body landing-card">
+          <h4 class="white-link"><%= link_to @books.fourth.title, book_path(@books.fourth)%></h4>
           <p class="card-text"><%= @books.fourth.description[0..100] %>...</p>
         </div>
       </div>
     </div>
-
-    <p>What began as a Berlin startup has now become the country's most popular platform to borrow and lend books. Ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae maxime tenetur voluptatem placeat molestias excepturi doloremque ullam tempore molestiae repellat, ab omnis nostrum modi sint deleniti. Laboriosam nemo dolores non.</p>
+<% end %>
+    <p class="landing-text">What began as a Berlin startup has now become the country's most popular platform to borrow and lend books. Ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae maxime tenetur voluptatem placeat molestias excepturi doloremque ullam tempore molestiae repellat, ab omnis nostrum modi sint deleniti. Laboriosam nemo dolores non.</p>
 
   </div>
 </div>
