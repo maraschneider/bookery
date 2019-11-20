@@ -1,12 +1,9 @@
-<div class="container" style="width: 600px">
-<h3>Your Rentals</h3>
-<% @rentals.each do |rental|%>
-  <div class="card p-3 my-3">
-    <div><strong><%= rental.book.title %></strong></div>
-    <div>Rental starts on: <%= rental.start_date %></div>
-    <div>Rental ends on: <%= rental.return_date %></div>
-    <div><%= rental.status %></div>
-    <%= link_to "Change Status", edit_rental_path(rental), class: "btn btn-secondary" %>
-  </div>
-<% end %>
+<div class="container my-3" style="width: 600px">
+  <h3>Your Reading Rentals</h3>
+  <%= render partial: "rentals/rentals_list", collection: @rentals, as: :rental%>
+
+  <% if @rentals_host != [] %>
+    <h3>Your Host Rentals</h3>
+    <%= render partial: "rentals/rentals_list", collection: @rentals_host, as: :rental%>
+  <% end %>
 </div>

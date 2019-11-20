@@ -1,0 +1,7 @@
+<div class="card p-3 my-3">
+  <div><strong><%= rental.book.title %></strong></div>
+  <div>Rental starts on: <%= rental.start_date %></div>
+  <div>Rental ends on: <%= rental.return_date %></div>
+  <div>Status: <%= rental.status %></div>
+  <%= link_to "Change Status", edit_rental_path(rental), class: "btn btn-secondary" %>
+</div>
