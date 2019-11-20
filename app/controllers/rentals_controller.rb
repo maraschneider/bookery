@@ -18,9 +18,25 @@ class RentalsController < ApplicationController
     end
   end
 
+  def edit
+    @rental = Rental.find(params[:id])
+    authorize @rental
+  end
+
+  def update
+    @rental = Rental.find(params[:id])
+    authorize @rental
+    @rental.update(rental_params)
+    if @rental.save
+      redirect_to rentals_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def rental_params
-    params.require(:rental).permit(:start_date, :return_date, :book_id)
+    params.require(:rental).permit(:start_date, :return_date, :book_id, :status)
   end
 end
