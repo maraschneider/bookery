@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:show, :search]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   def index
     @books = policy_scope(Book)
