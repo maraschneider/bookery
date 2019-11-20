@@ -1,10 +1,20 @@
+<div class="profile">
 <div class="container">
-<div class="row">
+<div class="row p-5">
   <div class="col-4 border">
     <div class="text-center border-bottom">
-      <%= image_tag @user.profile_pic, class: "avatar", alt: "Profile picture" %>
+      <%= image_tag @user.profile_pic, class: "avatar-large", alt: "Profile picture" %>
     </div>
-    <p>INSERT_NUMBER Bewertungen</p>
+    <p><i class="far fa-star"></i>
+      <% counter = 0 %>
+      <% @user.books.each do |book| %>
+        <% book.rentals.each do |rental| %>
+          <% counter += 1 %>
+        <% end %>
+      <% end %>
+      <%= @user.rentals.count + counter %> reviews</p>
+  <p><i class="fas fa-book"></i>
+  <%= @user.books.count %> books</p>
   </div>
 
   <div class="col-8">
@@ -14,21 +24,22 @@
     <p class="quotes">“</p>
     <p><%= @user.description %></p>
     <p class="quotes">-</p>
-    <p>Lives in <%= @user.location %></p>
-    <p>Speaks <%= @user.language %></p>
+    <p><i class="fas fa-home"></i> Lives in <%= @user.location %></p>
+    <p><i class="fas fa-language"></i> Speaks <%= @user.language %></p>
 
     <div class="border-bottom">
       All of <%= @user.first_name %>'s books
       <ol class="slides">
         <% @user.books.each do |book| %>
-          <li> <%= book.title %> </li>
+          <li> <%= link_to book.title, book_path(book) %> </li>
         <% end %>
       <ol>
     </div>
 
-    <h2>INSERT_NUMBER reviews</h2>
+    <h2><%= @user.rentals.count + counter %> reviews</h2>
 
     <%= render 'review' %>
   </div>
+</div>
 </div>
 </div>
