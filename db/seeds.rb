@@ -20,14 +20,14 @@ languages = %w(english german polish french danish italian spanish)
 
   if new_user
     10.times do
-      book = Book.new(title: Faker::Book.title, language: languages.sample, description: "Ipsem lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam velit iste voluptatum enim, ipsa eveniet dolores doloremque quibusdam vitae deserunt pariatur, quaerat alias non porro minus aspernatur dolorem quasi! Aliquam. Ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, necessitatibus perspiciatis natus minima vel architecto! Accusamus quisquam soluta in reiciendis a dolores fugiat sapiente quasi. Ab distinctio neque, possimus voluptatum.", image_url: "https://picsum.photos/200")
+      book = Book.new(title: Faker::Book.title, language: languages.sample, description: "Ipsem lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam velit iste voluptatum enim, ipsa eveniet dolores doloremque quibusdam vitae deserunt pariatur, quaerat alias non porro minus aspernatur dolorem quasi! Aliquam. Ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, necessitatibus perspiciatis natus minima vel architecto! Accusamus quisquam soluta in reiciendis a dolores fugiat sapiente quasi. Ab distinctio neque, possimus voluptatum.", image_url: "https://picsum.photosgit /200")
       book.user = new_user
       book.save
     end
   end
 end
 
-# For demo purpose only (to have nice pics for 4 book recommendations)
+# HARD CODING FOR DEMO ONLY - - - START
 
 first_book = Book.find(1)
 second_book = Book.find(2)
@@ -79,11 +79,21 @@ second_book.language = "English"
 third_book.language = "English"
 fourth_book.language = "English"
 
-
 first_book.save
 second_book.save
 third_book.save
 fourth_book.save
+
+first_user = User.find(1)
+second_user = User.find(2)
+
+first_user.profile_pic = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+second_user.profile_pic = "https://images.unsplash.com/photo-1555753838-55c1a93b41a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80"
+
+first_user.save
+second_user.save
+
+# HARD CODING FOR DEMO ONLY - - - END
 
 
 10.times do
@@ -144,13 +154,13 @@ rental9.save
   host_review4.save
   host_review5 = Review.new(rental_id:5, content:"Super smooth.", rating:5, is_reader: false)
   host_review5.save
-  host_review6 = Review.new(rental_id:6, content:"Lovely experience.", rating:5, is_reader: false)
+  host_review6 = Review.new(rental_id:5, content:"Lovely experience.", rating:5, is_reader: false)
   host_review6.save
-  host_review7 = Review.new(rental_id:7, content:"Super friendly guy!", rating:5, is_reader: false)
+  host_review7 = Review.new(rental_id:5, content:"Super friendly guy!", rating:5, is_reader: false)
   host_review7.save
-  host_review8 = Review.new(rental_id:8, content:"Loved the guy. Super German. Super punctual.", rating:5, is_reader: false)
+  host_review8 = Review.new(rental_id:5, content:"Loved the guy. Super German. Super punctual.", rating:5, is_reader: false)
   host_review8.save
-  host_review9 = Review.new(rental_id:9, content:"Returned my book 2 days late :(", rating:1, is_reader: false)
+  host_review9 = Review.new(rental_id:5, content:"Returned my book 2 days late :(", rating:1, is_reader: false)
   host_review9.save
 
 puts "Successfully seeded"
