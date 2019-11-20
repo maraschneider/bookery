@@ -9,6 +9,10 @@ class BookPolicy < ApplicationPolicy
     true
   end
 
+  def search?
+    true
+  end
+
   def update?
     is_owner?
   end

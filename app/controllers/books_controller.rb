@@ -15,6 +15,7 @@ class BooksController < ApplicationController
     if params[:title].present?
       @title = params[:title]
       @books = Book.where("title ILIKE ?", "%#{@title}%")
+      authorize @books
     end
   end
 
