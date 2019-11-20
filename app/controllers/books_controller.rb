@@ -6,9 +6,11 @@ class BooksController < ApplicationController
   end
 
   def show
-    @rental = current_user.rentals.new
-    @rental.book = @book
-    @user = current_user
+    if current_user
+      @rental = current_user.rentals.new
+      @rental.book = @book
+      @user = current_user
+    end
   end
 
   def search
