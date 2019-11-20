@@ -9,10 +9,11 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
+
     authorize @rental
     if @rental.save
-      # TODO: redirect to rentals#show
-      redirect_to current_user
+      redirect_to rentals_path
+      flash[:notice] = "Rental of #{@rental.book.title} requested. The host has to confirm the rental."
     else
       render 'books/show'
     end
