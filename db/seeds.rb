@@ -144,13 +144,13 @@ rental9.save
   host_review4.save
   host_review5 = Review.new(rental_id:5, content:"Super smooth.", rating:5, is_reader: false)
   host_review5.save
-  host_review6 = Review.new(rental_id:5, content:"Lovely experience.", rating:5, is_reader: false)
+  host_review6 = Review.new(rental_id:6, content:"Lovely experience.", rating:5, is_reader: false)
   host_review6.save
-  host_review7 = Review.new(rental_id:5, content:"Super friendly guy!", rating:5, is_reader: false)
+  host_review7 = Review.new(rental_id:7, content:"Super friendly guy!", rating:5, is_reader: false)
   host_review7.save
-  host_review8 = Review.new(rental_id:5, content:"Loved the guy. Super German. Super punctual.", rating:5, is_reader: false)
+  host_review8 = Review.new(rental_id:8, content:"Loved the guy. Super German. Super punctual.", rating:5, is_reader: false)
   host_review8.save
-  host_review9 = Review.new(rental_id:5, content:"Returned my book 2 days late :(", rating:1, is_reader: false)
+  host_review9 = Review.new(rental_id:9, content:"Returned my book 2 days late :(", rating:1, is_reader: false)
   host_review9.save
 
 puts "Successfully seeded"
