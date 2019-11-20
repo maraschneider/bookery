@@ -1,6 +1,13 @@
 class RentalsController < ApplicationController
   def index
     @rentals = policy_scope(Rental)
+    @books = current_user.books
+    @rentals_host = []
+    @books.each do |book|
+      book.rentals.each do |rental|
+        @rentals_host << rental
+      end
+    end
   end
 
   def show
