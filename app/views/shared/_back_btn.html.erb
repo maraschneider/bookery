@@ -1,0 +1,9 @@
+<!--TODO: Replace link with previous search params -->
+<%= link_to "Back to Search",
+      search_books_path(title: "the"),
+      class: "btn btn-secondary my-3" %>
+
+  <%#if URI(request.referer).path == "/books/search" %>
+    <%#= link_to 'Back to Search', request.referer, class: "btn btn-warning" %>
+  <%#end%>
+

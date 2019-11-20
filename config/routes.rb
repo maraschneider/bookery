@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :rentals
   resources :books
   resources :users, only: [:show]
-  get 'books/search/:title', to: 'books#search'
+  get 'books/search/:title', to: 'books#search', as: 'search_books'
 end
