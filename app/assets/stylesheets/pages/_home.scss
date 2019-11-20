@@ -38,10 +38,10 @@
   border: solid white 2px;
   border-radius: 20px;
   margin-bottom: 100px;
-}
-
-.book-card {
+  background-color:rgba(0, 0, 0, 0.6);
   color: white;
+  position: relative;
+  height: 600px;
 }
 
 .card-img-top {
@@ -54,7 +54,6 @@
  }
 
 .landing-card {
-  background-color:rgba(0, 0, 0, 0.6);
   border-radius: 0px 0px 20px 20px;
 }
 
@@ -62,4 +61,8 @@
   color: white;
 }
 
+.card-body.landing-card {
+  position: absolute;
+  bottom: 10px;
+}
 
