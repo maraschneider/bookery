@@ -1,4 +1,4 @@
-<h2>review as reader</h2>
+<h4>review as reader</h4>
 <% @user.rentals.each do |rental| %>
   <div class="review-card border-bottom">
   <%= rental.book.title %> from <%= rental.book.user.first_name %>
@@ -7,7 +7,7 @@
   </div>
 <% end %>
 
-<h2>review as host</h2>
+<h4>review as host</h4>
 <% @user.books.each do |book| %>
   <% book.rentals.each do |rental| %>
     <div class="review-card border-bottom">
