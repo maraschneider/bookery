@@ -7,10 +7,10 @@
           <%= link_to "Sign Up Today", new_user_registration_path, class: "btn btn-outline-secondary" %>
       </div>
         <div>
-            <div class="form">
-              <%= simple_form_for(@books) do |f| %>
-                <%= f.input :title, placeholder: "'try Macbeth by Shakespeare'" %>
-                <%= f.submit "Find my next read", class: "btn btn-outline-secondary" %>
+            <div class="form" style="background-color:rgba(0, 0, 0, 0.2)">
+              <%= simple_form_for(@book) do |f| %>
+                <%= f.input :title, placeholder: "'try Macbeth by Shakespeare'", label: false %>
+                <%= f.submit "Find my next read", class: "btn btn-outline-light" %>
               <% end %>
             </div>
         </div>
@@ -20,31 +20,31 @@
 
     <div class="bottom row justify-content-between">
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
-        <div class="card-body">
-          <h4>John Doe</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <img class="card-img-top" src=<%= @books.first.image_url %>>
+        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
+          <h4><%= link_to @books.first.title, book_path(@books.first)%></h4>
+          <p class="card-text"><%= @books.first.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1493106819501-66d381c466f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="Card image cap">
-        <div class="card-body">
-          <h4>John Doe</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <img class="card-img-top" src=<%= @books.second.image_url %>>
+        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
+          <h4><%= link_to @books.second.title, book_path(@books.second)%></h4>
+          <p class="card-text"><%= @books.second.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1506076177893-89d54794ef41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="Card image cap">
-        <div class="card-body">
-          <h4>John Doe</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <img class="card-img-top" src=<%= @books.third.image_url %>>
+        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
+          <h4><%= link_to @books.third.title, book_path(@books.third)%></h4>
+          <p class="card-text"><%= @books.third.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=330&q=80" alt="Card image cap">
-        <div class="card-body">
-          <h4>John Doe</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <img class="card-img-top" src=<%= @books.fourth.image_url %>>
+        <div class="card-body" style="background-color:rgba(0, 0, 0, 0.6);">
+          <h4><%= link_to @books.fourth.title, book_path(@books.fourth)%></h4>
+          <p class="card-text"><%= @books.fourth.description[0..100] %>...</p>
         </div>
       </div>
     </div>
