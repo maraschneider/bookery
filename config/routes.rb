@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :rentals
   resources :books
   resources :users, only: [:show, :update]
-  get 'books/search/:title', to: 'books#search'
+  resources :reviews, only: [:new, :create]
   get 'dashboard', to: 'users#dashboard'
   get 'dashboard/hostings', to: 'users#list_hostings'
   get 'dashboard/readings', to: 'users#list_readings'

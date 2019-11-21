@@ -9,10 +9,13 @@
       <% counter = 0 %>
       <% @user.books.each do |book| %>
         <% book.rentals.each do |rental| %>
-          <% counter += 1 %>
+          <% counter += 1 if rental.reviews.find_by(is_reader: false) %>
         <% end %>
       <% end %>
-      <%= @user.rentals.count + counter %> reviews</p>
+      <% @user.rentals.each do |rental| %>
+        <% counter += 1 if rental.reviews.find_by(is_reader: true) %>
+      <% end %>
+      <%= counter %> reviews</p>
   <p><i class="fas fa-book"></i>
   <%= @user.books.count %> books</p>
   </div>
@@ -36,7 +39,7 @@
       <ol>
     </div>
 
-    <h2><%= @user.rentals.count + counter %> reviews</h2>
+    <h2><%= counter %> reviews</h2>
 
     <%= render 'review' %>
   </div>

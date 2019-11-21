@@ -3,10 +3,12 @@
     <h4>review as reader</h4>
     <% @user.rentals.each do |rental| %>
       <div class="review-card border-bottom">
-      <%= rental.book.title %> from <%= rental.book.user.first_name %> >>
-      <%= rental.reviews.find_by(is_reader: true).rating %> <i class="far fa-star"></i>
-      <br>
-      <%= rental.reviews.find_by(is_reader: true).content %>
+        <% if rental.reviews.find_by(is_reader: true) %>
+          <%= rental.book.title %> from <%= rental.book.user.first_name %> >>
+          <%= rental.reviews.find_by(is_reader: true).rating %> <i class="far fa-star"></i>
+          <br>
+          <%= rental.reviews.find_by(is_reader: true).content %>
+        <% end %>
       </div>
     <% end %>
   <% end %>
@@ -15,11 +17,13 @@
     <h4>review as host</h4>
     <% @user.books.each do |book| %>
       <% book.rentals.each do |rental| %>
-        <div class="review-card border-bottom">
-        <%= book.title %> to <%= rental.user.first_name %> >>
-        <%= rental.reviews.find_by(is_reader: false).rating %> <i class="far fa-star"></i>
-        <br>
-        <%= rental.reviews.find_by(is_reader: false).content %>
+        <% if rental.reviews.find_by(is_reader: false) %>
+          <div class="review-card border-bottom">
+            <%= book.title %> to <%= rental.user.first_name %> >>
+            <%= rental.reviews.find_by(is_reader: false).rating %> <i class="far fa-star"></i>
+            <br>
+            <%= rental.reviews.find_by(is_reader: false).content %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
