@@ -1,6 +1,6 @@
 <div class="card p-3 my-3">
   <div class="container d-flex">
-    <div class="mr-3"> <%= image_tag rental.book.image_url, style: "width: 100px", alt: "book_cover" %></div>
+    <div class="mr-3"><%= cl_image_tag rental.book.book_cover, style: "width: 100px"%></div>
     <div>
       <div><strong><%= rental.book.title %></strong></div>
       <div>Rental starts on: <%= rental.start_date %></div>

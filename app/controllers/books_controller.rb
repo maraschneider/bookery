@@ -67,7 +67,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :year, :location, :language, :image_url, :author, :genre, :description)
+    params.require(:book).permit(:title, :year, :location, :language, :book_cover, :author, :genre, :description)
   end
 
   def disable_dates_for_rental

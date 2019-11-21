@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :profile_picture, ProfilePictureUploader
   has_many :rentals
   has_many :books
   has_many :own_book_rentals, through: :books, source: :rentals
