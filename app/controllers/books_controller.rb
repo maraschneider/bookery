@@ -18,6 +18,11 @@ class BooksController < ApplicationController
     end
 
     @books = policy_scope(Book)
+    if params[:query].present?
+      @books = Book.search_by_title_author_year_language_genre(params[:query])
+    else
+      @books = Book.all
+    end
   end
 
   def show
@@ -28,6 +33,7 @@ class BooksController < ApplicationController
     end
   end
 
+  #currently not in use:
   def show_selection
   end
 
@@ -63,6 +69,11 @@ class BooksController < ApplicationController
   end
 
   private
+
+  #currently not in use:
+  def search_by_title_strict(query_string)
+    Book.where(title: params[:query])
+  end
 
   def set_book
     @book = Book.find(params[:id])
