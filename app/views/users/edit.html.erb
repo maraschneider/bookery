@@ -1,0 +1,15 @@
+<%= render'users/dashboard_nav' %>
+<div class="container my-3">
+  <div class="form my-3" style="width: 600px">
+    <h3>Edit Profile Info </h3>
+    <%= simple_form_for(@user) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :location %>
+      <%= f.input :language %>
+      <%= f.input :description %>
+      <%= f.input :profile_pic %>
+      <%= f.submit class:"btn btn-secondary m-3" %>
+    <% end %>
+  </div>
+</div>
