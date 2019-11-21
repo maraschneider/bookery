@@ -3,6 +3,20 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:title].present?
+      @title = params[:title]
+      @books = Book.where("title ILIKE ?", "%#{@title}%")
+      authorize @books
+    end
+
+    @users = User.geocoded #returns users with coordinates
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
+
     @books = policy_scope(Book)
   end
 
@@ -11,14 +25,6 @@ class BooksController < ApplicationController
       @rental = current_user.rentals.new
       @rental.book = @book
       @user = current_user
-    end
-  end
-
-  def search
-    if params[:title].present?
-      @title = params[:title]
-      @books = Book.where("title ILIKE ?", "%#{@title}%")
-      authorize @books
     end
   end
 
