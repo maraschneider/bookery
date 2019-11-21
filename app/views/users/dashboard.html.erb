@@ -1,11 +1,4 @@
-<div class="container">
-    <h3 class="m-3 p-3">Welcome to your dashboard,
-      <% if current_user.first_name.nil? %>
-        <%= current_user.email %>
-      <% else %>
-        <%= current_user.first_name %>
-      <% end %>
-    </h3>
+<%= render'users/dashboard_nav' %>
 <div class="container my-3 d-flex justify-content-between">
   <div class="" style="width: 400px">
     <%= render 'users/edit_profile' %>
