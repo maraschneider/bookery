@@ -18,6 +18,8 @@
       <%= counter %> reviews</p>
   <p><i class="fas fa-book"></i>
   <%= @user.books.count %> books</p>
+  <p><i class="fas fa-home"></i> Lives in <%= @user.location %></p>
+  <p><i class="fas fa-language"></i> Speaks <%= @user.language %></p>
   </div>
 
   <div class="col-8">
@@ -27,19 +29,21 @@
     <p class="quotes">“</p>
     <p><%= @user.description %></p>
     <p class="quotes">-</p>
-    <p><i class="fas fa-home"></i> Lives in <%= @user.location %></p>
-    <p><i class="fas fa-language"></i> Speaks <%= @user.language %></p>
-
-    <div class="border-bottom">
+  </div>
+  <br>
+  <div class=row p-5>
+    <div class="col-12 border-bottom">
       All of <%= @user.first_name %>'s books
       <ol class="slides">
         <% @user.books.each do |book| %>
           <li> <%= link_to book.title, book_path(book) %> </li>
         <% end %>
-      <ol>
+      </ol>
     </div>
-
     <h2><%= counter %> reviews</h2>
+    <br>
+  </div>
+  <div class="row p-5">
 
     <%= render 'review' %>
   </div>
