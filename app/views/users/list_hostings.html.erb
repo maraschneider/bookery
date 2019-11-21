@@ -1,0 +1,7 @@
+<%= render'users/dashboard_nav' %>
+<div class="container my-3">
+  <% if @hostings != [] %>
+    <h3>Your Hostings</h3>
+    <%= render partial: "rentals/rentals_list", collection: @hostings, as: :rental%>
+  <% end %>
+</div>
