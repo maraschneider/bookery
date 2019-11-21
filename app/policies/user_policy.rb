@@ -16,4 +16,12 @@ class UserPolicy < ApplicationPolicy
   def dashboard?
     user
   end
+
+  def list_readings?
+    user
+  end
+
+  def list_hostings?
+    user
+  end
 end
