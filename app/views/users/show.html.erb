@@ -3,7 +3,7 @@
 <div class="row p-5">
   <div class="col-4 border">
     <div class="text-center border-bottom">
-      <%= image_tag @user.profile_pic, class: "avatar-large", alt: "Profile picture" %>
+      <%= cl_image_tag @user.profile_picture.url(:thumnail), class: "avatar"%>
     </div>
     <p><i class="far fa-star"></i>
       <% counter = 0 %>
