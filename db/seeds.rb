@@ -1,16 +1,55 @@
 require 'faker'
 
 puts "deletes all records"
-User.destroy_all
-Book.destroy_all
-Rental.destroy_all
+
 Review.destroy_all
+Rental.destroy_all
+Book.destroy_all
+User.destroy_all
 
 puts "creates fake users & fake books & fake rentals & fake reviews "
 
 languages = %w(english german polish french danish italian spanish)
 
-5.times do
+#First 4 users hardcoded
+
+User.create(email: "user1@example.com",
+                    password: "123456",
+                    first_name: "Peter",
+                    last_name: "Lustig",
+                    location: "Berlin",
+                    language: "german",
+                    description: "I read two books a day. How I do it? I was fired last month.",
+                    profile_pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+User.create(email: "user2@example.com",
+                    password: "123456",
+                    first_name: "Friedrich",
+                    last_name: "Seibert",
+                    location: "Hamburg",
+                    language: "german",
+                    description: "Current student at Yale, Booklery is great to save costs on textbooks.",
+                    profile_pic: "https://images.unsplash.com/photo-1555753838-55c1a93b41a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80")
+
+User.create(email: "user3@example.com",
+                    password: "123456",
+                    first_name: "Michael",
+                    last_name: "Jackson",
+                    location: "Stuttgart",
+                    language: "english",
+                    description: "Former pilot, now retired and spending most of my day on Booklery",
+                    profile_pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+User.create(email: "user4@example.com",
+                    password: "123456",
+                    first_name: "Heinrich",
+                    last_name: "Muller",
+                    location: "Munich",
+                    language: "german",
+                    description: "I read two books a day. How I do it? I am reading in my dreams.",
+                    profile_pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+10.times do
   name = Faker::Internet.username
   new_user = User.create(email: "#{name}@example.com",
                     password: Faker::Internet.password(min_length: 8),
@@ -29,13 +68,12 @@ print new_user
   end
 end
 
-# HARD CODING FOR DEMO ONLY - - - START
+# FIRST 4 HARD CODED BOOKS:
 
-first_book = Book.find(1)
-second_book = Book.find(2)
-third_book = Book.find(3)
-fourth_book = Book.find(4)
-
+first_book = Book.create(title: "Deutschland schafft sich ab")
+second_book = Book.create(title: "1984")
+third_book = Book.create(title: "Lord of the Rings")
+fourth_book = Book.create(title: "Siege: Trump under Fire")
 
 first_book.image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Thilo_Sarrazin_-_Deutschland_schafft_sich_ab._Cover.png/1200px-Thilo_Sarrazin_-_Deutschland_schafft_sich_ab._Cover.png"
 
@@ -44,7 +82,6 @@ second_book.image_url = "https://ikindlebooks.com/wp-content/uploads/2016/09/198
 third_book.image_url = "https://cdn.collider.com/wp-content/uploads/2016/07/the-lord-of-the-rings-book-cover.jpg"
 
 fourth_book.image_url = "https://ewedit.files.wordpress.com/2019/05/siege.jpg"
-
 
 first_book.description = "Thilo Sarrazin beschreibt mit seiner profunden Erfahrung aus Politik und Verwaltung die Folgen, die sich für Deutschlands Zukunft aus der Kombination von Geburtenrückgang, problematischer Zuwanderung und wachsender Unterschicht ergeben. Er will sich nicht damit abfinden, dass Deutschland nicht nur älter und kleiner, sondern auch dümmer und abhängiger von staatlichen Zahlungen wird. Sarrazin sieht genau hin, seine Analyse schont niemanden. Er zeigt ganz konkret, wie wir die Grundlagen unseres Wohlstands untergraben und so den sozialen Frieden und eine stabile Gesellschaft aufs Spiel setzen. Deutschland läuft Gefahr, in einen Alptraum zu schlittern. Dass das so ist, weshalb das so ist und was man dagegen tun kann, davon handelt dieses Buch."
 second_book.description = "In 1984, London is a grim city where Big Brother is always watching you and the Thought Police can practically read your mind.  Winston Smith joins a secret revolutionary organization called The Brotherhood, dedicated to the destruction of the Party. Together with his beloved Julia, he hazards his life in a deadly match against the powers that be.
@@ -55,16 +92,10 @@ third_book.description = "Inspired by The Hobbit and begun in 1937, The Lord of 
 The Fellowship of the Ring, the first volume in the trilogy, tells of the fateful power of the One Ring. It begins a magnificent tale of adventure that will plunge the members of the Fellowship of the Ring into a perilous quest and set the stage for the ultimate clash between the powers of good and evil."
 fourth_book.description = "With Fire and Fury, Michael Wolff defined the first phase of the Trump administration; now, in Siege, he has written an equally essential and explosive book about a presidency that is under fire from almost every side. A stunningly fresh narrative that begins just as Trump's second year as president is getting underway and ends with the delivery of the Mueller Report, Siege reveals an administration that is perpetually beleaguered by investigations and a president who is increasingly volatile, erratic, and exposed."
 
-
 first_book.year = 2018
 second_book.year = 2017
 third_book.year = 2016
 fourth_book.year = 2019
-
-first_book.title = "Deutschland schafft sich ab"
-second_book.title = "1984"
-third_book.title = "Lord of the Rings"
-fourth_book.title = "Siege: Trump Under Fire"
 
 first_book.author = "Thilo Sarrazin"
 second_book.author = "George Orwell"
@@ -86,44 +117,39 @@ second_book.save
 third_book.save
 fourth_book.save
 
-first_user = User.find(1)
-second_user = User.find(2)
-
-first_user.profile_pic = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-second_user.profile_pic = "https://images.unsplash.com/photo-1555753838-55c1a93b41a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80"
-
-first_user.save
-second_user.save
-
-# HARD CODING FOR DEMO ONLY - - - END
-
-
 10.times do
   user = User.all.sample
   book = (Book.all - user.books).sample
-  new_rental = Rental.create(book_id: book.id,
-                           user_id: user.id,
-                           start_date: Faker::Date.backward,
-                           return_date: Faker::Date.forward)
 end
 
-rental1 = Rental.new(book_id:1, user_id:2)
+# HARD CODING FOR DEMO ONLY - - - END
+
+rental1 = Rental.new(book_id:1, user_id:2, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental1.save
-rental2 = Rental.new(book_id:12, user_id:1)
+rental2 = Rental.new(book_id:12, user_id:1, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental2.save
-rental3 = Rental.new(book_id:3, user_id:4)
+rental3 = Rental.new(book_id:3, user_id:4, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental3.save
-rental4 = Rental.new(book_id:4, user_id:3)
+rental4 = Rental.new(book_id:4, user_id:3, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental4.save
-rental5 = Rental.new(book_id:5, user_id:5)
+rental5 = Rental.new(book_id:5, user_id:5, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental5.save
-rental6 = Rental.new(book_id:6, user_id:2)
+rental6 = Rental.new(book_id:6, user_id:2, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental6.save
-rental7 = Rental.new(book_id:17, user_id:1)
+rental7 = Rental.new(book_id:17, user_id:1, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental7.save
-rental8 = Rental.new(book_id:8, user_id:2)
+rental8 = Rental.new(book_id:8, user_id:2, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental8.save
-rental9 = Rental.new(book_id:18, user_id:1)
+rental9 = Rental.new(book_id:18, user_id:1, start_date: Faker::Date.backward,
+                           return_date: Faker::Date.forward)
 rental9.save
 
 
