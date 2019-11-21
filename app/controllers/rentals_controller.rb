@@ -1,14 +1,6 @@
 class RentalsController < ApplicationController
+  before_action :set_user, only: [:edit, :update]
   def index
-    @rentals = policy_scope(Rental)
-    @user = current_user
-    @books = current_user.books
-    @rentals_host = []
-    @books.each do |book|
-      book.rentals.each do |rental|
-        @rentals_host << rental
-      end
-    end
   end
 
   def show
@@ -28,13 +20,10 @@ class RentalsController < ApplicationController
   end
 
   def edit
-    @rental = Rental.find(params[:id])
-    authorize @rental
+
   end
 
   def update
-    @rental = Rental.find(params[:id])
-    authorize @rental
     @rental.update(rental_params)
     if @rental.save
       redirect_to rentals_path
@@ -44,6 +33,11 @@ class RentalsController < ApplicationController
   end
 
   private
+
+  def set_user
+    @rental = Rental.find(params[:id])
+    authorize @rental
+  end
 
   def rental_params
     params.require(:rental).permit(:start_date, :return_date, :book_id, :status)

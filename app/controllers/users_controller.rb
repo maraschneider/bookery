@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def dashboard
+    @readings = list_readings
+    @hostings = list_hostings
+  end
 
   private
 
@@ -28,5 +32,18 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :language, :description, :location, :profile_pic)
+  end
+
+  def list_readings
+    current_user.rentals
+  end
+
+  def list_hostings
+    @books = current_user.books
+    @rentals_host = []
+    @books.each do |book|
+      book.rentals.each { |rental| @rentals_host << rental }
+    end
+    return @rentals_host
   end
 end
