@@ -1,0 +1,8 @@
+<div class="container form my-4">
+  <%= simple_form_for(@review) do |f| %>
+    <%= f.input :rating, collection: (1..5).to_a  %>
+    <%= f.input :content %>
+    <%= f.submit class:"btn btn-secondary" %>
+  <% end %>
+</div>
+
