@@ -3,8 +3,8 @@
   <div class="bg-white p-3 my-3 h-100 position-relative" style="width: 400px">
     <h3>Rent Book</h3>
     <%= simple_form_for(@rental) do |f| %>
-      <%= f.input :start_date, as: :string, input_html: { id: "start-date" } %>
-      <%= f.input :return_date, as: :string, input_html: { id: "end-date" } %>
+      <%= f.input :start_date, as: :string, input_html: { id: "start-date", class: "disable-dates" } %>
+      <%= f.input :return_date, as: :string, input_html: { id: "end-date", class: "disable-dates" } %>
       <%= f.input :book_id, as: :hidden %>
       <%= f.submit "Request", class: "btn btn-secondary" %>
     <% end %>
