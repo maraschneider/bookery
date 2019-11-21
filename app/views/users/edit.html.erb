@@ -1,15 +1,28 @@
 <%= render'users/dashboard_header' %>
-<div class="container my-3">
-  <div class="form my-3" style="width: 600px">
-    <h3>Edit Profile Info </h3>
+<div class="container d-flex my-3 justify-content-around">
+  <div class="form my-3 w-100">
     <%= simple_form_for(@user) do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :location %>
-      <%= f.input :language %>
+      <div class="row">
+        <div class="col">
+          <%= f.input :first_name %>
+        </div>
+        <div class="col">
+          <%= f.input :last_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.input :location %>
+        </div>
+        <div class="col">
+          <%= f.input :language %>
+        </div>
+      </div>
       <%= f.input :description %>
-      <%= f.input :profile_pic %>
-      <%= f.submit class:"btn btn-secondary m-3" %>
+      <%= f.input :profile_picture, class: "form-control-file"%>
+      <%= f.input :profile_picture_cache, as: :hidden %>
+      <%= f.submit class:"btn btn-secondary my-3" %>
     <% end %>
   </div>
 </div>
+

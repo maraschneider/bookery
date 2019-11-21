@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  mount_uploader :book_cover, BookCoverUploader
   belongs_to :user
   has_many :rentals
   validates :title, :language, presence: true
