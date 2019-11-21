@@ -65,4 +65,14 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :year, :location, :language, :image_url, :author, :genre, :description)
   end
+
+  def disable_dates_for_rental
+    @book.rentals.all.each do |rental|
+      dates_array << {
+        from: rental.start_date,
+        to: rental.return_date
+      }
+    end
+    dates_array
+  end
 end
