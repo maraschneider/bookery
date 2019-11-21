@@ -5,15 +5,18 @@
         <h1 class= "title">Booklery</h1>
         <h2 class= "subheader">Read. Meet. Repeat.</h2>
           <%= link_to "Sign Up Today", new_user_registration_path, class: "btn btn-outline-secondary" %>
+
       </div>
-        <div>
-            <div class="form" style="background-color:rgba(0, 0, 0, 0.2)">
-              <%= simple_form_for(@book) do |f| %>
-                <%= f.input :title, placeholder: "'try Macbeth by Shakespeare'", label: false %>
-                <%= f.submit "Find my next read", class: "btn btn-outline-light" %>
-              <% end %>
-            </div>
-        </div>
+          <div class="form" style="background-color:rgba(0, 0, 0, 0.2)">
+            <%= form_tag books_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "New search form"
+              %>
+              <%= submit_tag "Find my next read", class: "btn btn-outline-light" %>
+            <% end %>
+          </div>
       </div>
 
 <% if @books != [] %>

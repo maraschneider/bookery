@@ -1,8 +1,14 @@
 class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :search]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+
   def index
     @books = policy_scope(Book)
+    if params[:query].present?
+      @books = Book.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @books = Book.all
+    end
   end
 
   def show
@@ -13,14 +19,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def search
-    if params[:title].present?
-      @title = params[:title]
-      @books = Book.where("title ILIKE ?", "%#{@title}%")
-      authorize @books
-    end
-  end
-
+  #currently not in use:
   def show_selection
   end
 
@@ -56,6 +55,11 @@ class BooksController < ApplicationController
   end
 
   private
+
+  #currently not in use:
+  def search_by_title_strict(query_string)
+    Book.where(title: params[:query])
+  end
 
   def set_book
     @book = Book.find(params[:id])
