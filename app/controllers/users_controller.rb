@@ -19,7 +19,14 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @readings = list_readings
+    @readings = get_readings
+    @hostings = get_hostings
+    @no_readings = @readings.count
+    @no_hostings = @hostings.count
+    @no_books = @user.books.count
+
+  end
+
   def list_readings
     @readings = get_readings
   end

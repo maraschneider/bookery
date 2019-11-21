@@ -1,16 +1,25 @@
-<%= render'users/dashboard_nav' %>
+<%= render'users/dashboard_header' %>
 <div class="container my-3 d-flex justify-content-between">
   <div class="" style="width: 400px">
-    <%= render 'users/edit_profile' %>
+    <div class="card my-3 p-3">
+      <h4>
+        Number of books you are hosting:
+        <%= @no_books %>
+      </h4>
+    </div>
+    <div class="card my-3 p-3">
+      <h4>
+        Total readings:
+        <%= @no_readings %>
+      </h4>
+    </div>
+    <div class="card my-3 p-3">
+      <h4>
+        Total hostings:
+        <%= @no_hostings %>
+      </h4>
+    </div>
   </div>
-  <div class="container my-3" style="width: 600px">
-  <h3>Your Readings</h3>
-  <%= render partial: "rentals/rentals_list", collection: @readings, as: :rental%>
-
-  <% if @hostings != [] %>
-    <h3>Your Hostings</h3>
-    <%= render partial: "rentals/rentals_list", collection: @hostings, as: :rental%>
-  <% end %>
 </div>
 </div>
 </div>
