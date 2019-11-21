@@ -12,3 +12,4 @@ Rails.application.routes.draw do
   get 'dashboard/settings', to: 'users#edit'
   get 'dashboard/books', to: 'users#list_books'
 
+end
