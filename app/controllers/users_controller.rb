@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.save
-      redirect_to rentals_path
+      redirect_to dashboard_path
     else
       render 'edit'
     end
@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     @no_readings = @readings.count
     @no_hostings = @hostings.count
     @no_books = @user.books.count
-
   end
 
   def list_readings
@@ -47,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :language, :description, :location, :profile_pic)
+    params.require(:user).permit(:first_name, :last_name, :language, :description, :location, :profile_picture)
   end
 
   def get_readings
