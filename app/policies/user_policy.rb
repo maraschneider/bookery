@@ -24,4 +24,8 @@ class UserPolicy < ApplicationPolicy
   def list_hostings?
     user
   end
+
+  def list_books?
+    user
+  end
 end

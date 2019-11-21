@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_current_user, only: [:edit, :update, :dashboard]
+  before_action :set_current_user, only: [:edit, :update, :dashboard, :list_readings, :list_hostings, :list_books]
   def show
     @user = User.find(params[:id])
     authorize @user
@@ -26,6 +26,10 @@ class UsersController < ApplicationController
 
   def list_hostings
     @hostings = get_hostings
+  end
+
+  def list_books
+    @books = @user.books
   end
 
   private
