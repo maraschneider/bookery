@@ -1,0 +1,22 @@
+import flatpickr from "flatpickr"
+import "flatpickr/dist/themes/airbnb.css"
+import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
+
+//const initDatePicker = () => {
+  flatpickr("#start-date", {
+  minDate: "today",
+  altInput: true,
+  plugins: [new rangePlugin({ input: "#end-date" })]
+  });
+
+  //let dates_array = [ {
+  //  from: "2019-12-01",
+  //  to: "2019-12-07"
+  // }];
+
+  //flatpickr(".disable-dates", {
+  //  dateFormat: "Y-m-d",
+  //  disable: dates_array
+  //});
+//}
+//export { initDatePicker };
