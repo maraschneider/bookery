@@ -11,8 +11,7 @@
             <%= form_tag books_path, method: :get do %>
               <%= text_field_tag :query,
                 params[:query],
-                class: "form-control",
-                placeholder: "New search form"
+                class: "form-control", placeholder: "try '1984 George Orwell'"
               %>
               <%= submit_tag "Find my next read", class: "btn btn-outline-light" %>
             <% end %>

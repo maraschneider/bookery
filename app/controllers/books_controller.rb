@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   def index
     @books = policy_scope(Book)
     if params[:query].present?
-      @books = Book.where("title ILIKE ?", "%#{params[:query]}%")
+      @books = Book.search_by_title_author_year_language_genre(params[:query])
     else
       @books = Book.all
     end

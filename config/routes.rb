@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :books
   resources :reviews, only: [:new, :create]
   resources :users, only: [:show]
-  get 'books/search/:title', to: 'books#search'
 end
