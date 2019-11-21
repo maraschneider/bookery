@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 class="my-3 py-3">Hi,
+      <% if current_user.first_name.nil? %>
+        <%= current_user.email %>
+      <% else %>
+        <%= current_user.first_name %>
+      <% end %>
+  </h3>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "My Readings", dashboard_readings_path, class:"nav-link active"%>
+  </li>
+  <li class="nav-item">
+    <%= link_to "My Hostings", dashboard_hostings_path, class:"nav-link active"%>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Edit profile", dashboard_settings_path, class:"nav-link active"%>
+  </li>
+</ul>
+</div>
