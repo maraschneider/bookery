@@ -1,26 +1,37 @@
 <%= render'users/dashboard_header' %>
 <div class="container my-3 d-flex justify-content-between">
-  <div class="" style="width: 400px">
-    <div class="card my-3 p-3">
+  <% if @no_books != [] %>
+    <div class="card my-3 p-3 text-center" style="width: 300px">
       <h4>
-        Number of books you are hosting:
-        <%= @no_books %>
+        Number of books you are hosting
+        <h1> <%= @no_books %> </h1>
       </h4>
     </div>
-    <div class="card my-3 p-3">
+  <% end %>
+  <% if @no_readings != [] %>
+    <div class="card my-3 p-3 text-center" style="width: 300px">
       <h4>
-        Total readings:
-        <%= @no_readings %>
+        Total readings
+        <h1><%= @no_readings %></h1>
       </h4>
     </div>
-    <div class="card my-3 p-3">
+  <% end %>
+  <% if @no_hostings != [] %>
+    <div class="card my-3 p-3 text-center" style="width: 300px">
       <h4>
-        Total hostings:
-        <%= @no_hostings %>
+        Total hostings
+        <h1><%= @no_hostings %></h1>
       </h4>
     </div>
-  </div>
+  <% end %>
+  <% if @no_requests != [] %>
+    <div class="card my-3 p-3 text-center" style="width: 300px">
+      <h4>
+        New requests
+        <h1><%= @no_requests %></h1>
+      </h4>
+    </div>
+  <% end %>
 </div>
-</div>
-</div>
+
 
