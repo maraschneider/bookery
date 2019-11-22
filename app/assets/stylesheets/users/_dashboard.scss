@@ -1,0 +1,40 @@
+.container-kpi {
+  width: 90vw;
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 32px;
+  justify-content: center;
+  justify-items: center;
+  font-size: 24px;
+}
+.card-kpi {
+  background-color: rgb(88, 118, 129);
+  color: white;
+  text-align: center;
+  vertical-align: center;
+  padding: 24px;
+  width: 90%;
+  height: 24vh;
+  border-radius: 4px;
+  box-shadow: 4px 4px 32px rgba(50, 52, 50, 0.3);
+  align-items: center;
+}
+
+.bg-dark {
+  background-color: rgb(88, 118, 129);
+}
+
+.bold-num {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.card-rental {
+  border-radius: 4px;
+  box-shadow: 1px 1px 24px rgba(50, 52, 50, 0.1);
+  padding: 24px;
+  margin: 32px 0;
+  background-color: white;
+}
+
