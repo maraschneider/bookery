@@ -10,10 +10,6 @@
       <h3>Reviews</h3>
       <%= render 'books/reviews' %>
     </div>
-    <div class="bg-white p-3 my-3" style="width: 400px">
-      <h3>Availability</h3>
-      <div>TODO: Calender to be implemented ;-)</div>
-    </div>
+    <%= render'books/new_request' if current_user %>
   </div>
-  <%= render'books/new_request' if current_user %>
 </div>
