@@ -1,10 +1,10 @@
 require 'faker'
 
 puts "deletes all records"
-User.destroy_all
-Book.destroy_all
-Rental.destroy_all
 Review.destroy_all
+Rental.destroy_all
+Book.destroy_all
+User.destroy_all
 
 puts "creates fake users & fake books & fake rentals & fake reviews "
 
@@ -13,10 +13,11 @@ languages = %w(english german polish french danish italian spanish)
 5.times do
   name = Faker::Internet.username
   new_user = User.create(email: "#{name}@example.com",
-                    password: Faker::Internet.password(min_length: 8),
+                    password: "123456",
                     first_name: Faker::Name.first_name,
                     last_name: Faker::Name.last_name,
                     location: Faker::Address.city,
+                    lending_location: 'Berlin',
                     language: "english",
                     description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.")
 print new_user

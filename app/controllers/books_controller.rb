@@ -9,14 +9,29 @@ class BooksController < ApplicationController
       authorize @books
     end
 
-    @users = User.geocoded #returns users with coordinates
-    @markers = @users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url('/app/assets/images/book_pin.png')
-      }
+    if current_user
+
+    end
+
+    all_users = User.geocoded
+    if current_user
+      @markers = User.near(current_user.location, 20).map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          image_url: helpers.asset_url('/app/assets/images/book_pin.png')
+        }
+      end
+    end
+    unloged_user_location = 'Rudi-Dutschke-Straße 26, 10969 Berlin'
+    @markers = User.near(unloged_user_location, 10).map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          image_url: helpers.asset_url('/app/assets/images/book_pin.png')
+        }
     end
 
     @books = policy_scope(Book)

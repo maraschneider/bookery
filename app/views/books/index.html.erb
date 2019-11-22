@@ -1,7 +1,7 @@
 <div class="container">
   <div class="filter">
   </div>
-  <h4>Books found: <%= @books.count %> results</h4>
+  <h4>Books found: <%= pluralize @books.size, "result" %></h4>
   <div class="results">
   <div class="searchresult">
     <ul>
@@ -14,7 +14,7 @@
           <div class="col-md-4">
             <img src="<%= book.image_url %>" class="card-img" alt="Search Result">
           <div class="card-body" style="text-align: center;">
-            <%= link_to "See Book", book_path(book), class: "btn btn-secondary" %>
+            <%= link_to "See Book", book_path(book), class: "btn btn-outline-secondary" %>
           </div>
           </div>
 
