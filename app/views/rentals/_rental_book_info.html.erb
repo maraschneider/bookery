@@ -1,0 +1,16 @@
+<%= link_to rental.book do  %>
+  <div class="mr-3"><%= cl_image_tag rental.book.book_cover, style: "width: 100px"%></div>
+<% end %>
+</div>
+<div class="col">
+  <p>
+    <strong><%= rental.book.title %></strong>
+  </p>
+  <div>
+    Rental starts on:
+    <%= rental.start_date %>
+  </div>
+  <div>
+    Rental ends on:
+    <%= rental.return_date %>
+  </div>

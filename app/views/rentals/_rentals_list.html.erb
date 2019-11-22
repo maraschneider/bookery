@@ -1,42 +1,15 @@
-<div class="card-rental">
+<% if rental.status == 'canceled' || rental.status == 'closed' %>
+  <div class="card-rental-closed">
+<% else %>
+  <div class="card-rental">
+<% end %>
   <div class="row align-items-center justify-content-around">
     <div class="col-3">
-      <div class="mr-3"><%= cl_image_tag rental.book.book_cover, style: "width: 80px"%></div>
-    </div>
-    <div class="col">
-      <p><strong><%= rental.book.title %></strong></p>
-      <div>Rental starts on: <%= rental.start_date %></div>
-      <div>Rental ends on: <%= rental.return_date %></div>
-      <div class="py-2">
-        <% case rental.status %>
-          <% when 'requested' %>
-            <i class="far fa-question-circle" style="font-size: 24px; color: orange"></i>
-             waiting for confirmation
-          <% when 'closed' %>
-            <i class="far fa-check-circle" style="font-size: 24px; color: grey"></i>
-            rental completed
-          <% when 'cancelled' %>
-            <i class="far fa-times-circle" style="font-size: 24px; color: grey"></i>
-             rental cancelled
-          <% when 'confirmed' %>
-            <i class="far fa-check-circle" style="font-size: 24px; color: green"></i>
-             rental confirmed
-          <% end %>
-      </div>
+      <%= render 'rentals/rental_book_info', rental: rental %>
+      <%= render 'shared/status', rental: rental %>
     </div>
     <div class="col-4">
-        <div>
-        <%= link_to "View Book", book_path(rental.book), class: "btn btn-outline-secondary my-2", style: "width: 70%"%>
-      </div>
-      <div>
-        <%= link_to "Change Status", edit_rental_path(rental), class: "btn btn-outline-secondary my-2", style: "width: 70%" %>
-          <%# if rental.status == 'closed' %>
-            <%# if current_user == rental %>
-            <%# link_to "Add a review", book_path(rental.book) do %>
-
-            <%# end %>
-          <%# end %>
-      </div>
+      <%= render 'rentals/rental_buttons', rental: rental %>
     </div>
   </div>
 </div>
