@@ -22,28 +22,28 @@
     <h3 class="header-white"><strong>Berlin</strong> trends:</h3>
     <div class="bottom row justify-content-between">
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src=<%= @books.first.image_url %>>
+        <img class="card-img-top" src=<%= @books.first.book_cover %>>
         <div class="card-body landing-card">
           <h4 class="white-link"><%= link_to @books.first.title, book_path(@books.first)%></h4>
           <p class="card-text"><%= @books.first.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src=<%= @books.second.image_url %>>
+        <img class="card-img-top" src=<%= @books.second.book_cover %>>
         <div class="card-body landing-card">
           <h4 class="white-link"><%= link_to @books.second.title, book_path(@books.second)%></h4>
           <p class="card-text"><%= @books.second.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src=<%= @books.third.image_url %>>
+        <img class="card-img-top" src=<%= @books.third.book_cover %>>
         <div class="card-body landing-card">
           <h4 class="white-link"><%= link_to @books.third.title, book_path(@books.third)%></h4>
           <p class="card-text"><%= @books.third.description[0..100] %>...</p>
         </div>
       </div>
       <div class="book-card" style="width: 14rem;">
-        <img class="card-img-top" src=<%= @books.fourth.image_url %>>
+        <img class="card-img-top" src=<%= @books.fourth.book_cover %>>
         <div class="card-body landing-card">
           <h4 class="white-link"><%= link_to @books.fourth.title, book_path(@books.fourth)%></h4>
           <p class="card-text"><%= @books.fourth.description[0..100] %>...</p>
