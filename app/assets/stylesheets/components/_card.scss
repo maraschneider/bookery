@@ -5,3 +5,57 @@
   margin: 32px 0;
   background-color: white;
 }
+
+.review-card {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  margin: 3px 0;
+  .bookname {
+    color: grey;
+    font-size: 0.8em;
+    margin-top: 5px;
+    //padding-top: 15px;
+    margin-bottom: 0;
+    margin-bottom: 0;
+  }
+  .stars {
+    color: blue;
+  }
+  .username {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .user-since {
+    color: grey;
+    font-size: 0.8em;
+  }
+  .card-review-info {
+    padding-top: 5px;
+    padding-right: 10px;
+    display: flex;
+    //justify-content: space-between;
+    //align-items: flex-end;
+  }
+}
+
+.book-card-sm {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  .img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+  .card-infos {
+    padding: 16px;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
