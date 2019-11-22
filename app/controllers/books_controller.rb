@@ -3,36 +3,6 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:title].present?
-      @title = params[:title]
-      @books = Book.where("title ILIKE ?", "%#{@title}%")
-      authorize @books
-    end
-
-    if current_user
-
-    end
-
-    all_users = User.geocoded
-    if current_user
-      @markers = User.near(current_user.location, 20).map do |user|
-        {
-          lat: user.latitude,
-          lng: user.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-          image_url: helpers.asset_url('/app/assets/images/book_pin.png')
-        }
-      end
-    end
-    unloged_user_location = 'Rudi-Dutschke-Straße 26, 10969 Berlin'
-    @markers = User.near(unloged_user_location, 10).map do |user|
-        {
-          lat: user.latitude,
-          lng: user.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-          image_url: helpers.asset_url('/app/assets/images/book_pin.png')
-        }
-    end
 
     @books = policy_scope(Book)
     if params[:query].present?
@@ -40,6 +10,34 @@ class BooksController < ApplicationController
     else
       @books = Book.all
     end
+
+    # users_from_search = []
+
+    # @books.each do |book|
+    #   users_from_search << User.find(book.user_id)
+    # end
+
+    if current_user
+      @markers = User.all.near(current_user.location, 20).map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          image_url: helpers.asset_url('book_pin.png')
+        }
+      end
+    else
+      unloged_user_location = 'Rudi-Dutschke-Straße 26, 10969 Berlin'
+      @markers = User.near(unloged_user_location, 10).map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          image_url: helpers.asset_url('book_pin.png')
+        }
+      end
+    end
+    # raise
   end
 
   def show
