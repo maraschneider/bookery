@@ -7,4 +7,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  geocoded_by :lending_location
+  after_validation :geocode, if: :will_save_change_to_lending_location?
 end

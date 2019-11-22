@@ -1,7 +1,7 @@
 <div class="profile">
 <div class="container">
 <div class="row p-5">
-  <div class="col-4 border">
+  <div class="col-4 border bg-white my-3">
     <div class="text-center border-bottom">
       <%= cl_image_tag @user.profile_picture.url(:thumnail), class: "avatar-large"%>
     </div>
@@ -22,23 +22,29 @@
   <p><i class="fas fa-language"></i> Speaks <%= @user.language %></p>
   </div>
 
-  <div class="col-8">
+  <div class="col-8 my-3">
     <h1>Hello, I am  <%= @user.first_name %></h1>
-    Since <%= @user.created_at.year %> on Bookery
+    Since <%= @user.created_at.year %> on Booklery
     <h2>Info</h2>
-    <p class="quotes">“</p>
     <p><%= @user.description %></p>
-    <p class="quotes">-</p>
   </div>
   <br>
   <div class=row p-5>
     <div class="col-12 border-bottom">
-      All of <%= @user.first_name %>'s books
-      <ol class="slides">
+      <h2>All of <%= @user.first_name %>'s books</h2>
+      <div class="grid">
         <% @user.books.each do |book| %>
-          <li> <%= link_to book.title, book_path(book) %> </li>
+          <div class="book-card-sm m-1">
+            <div>
+              <%= cl_image_tag book.book_cover, class: "img" %>
+            </div>
+            <div class="card-infos">
+              <%= link_to book.title, book_path(book) %>
+              <p class="user-since"> <%= book.author %></p>
+            </div>
+          </div>
         <% end %>
-      </ol>
+      </div>
     </div>
     <h2><%= counter %> reviews</h2>
     <br>

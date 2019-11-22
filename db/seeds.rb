@@ -1,7 +1,6 @@
 require 'faker'
 
 puts "deletes all records"
-
 Review.destroy_all
 Rental.destroy_all
 Book.destroy_all
@@ -17,7 +16,8 @@ User.create(email: "user1@example.com",
                     password: "123456",
                     first_name: "Peter",
                     last_name: "Lustig",
-                    location: "Berlin",
+                    location: "Christburger Strasse 8 Berlin",
+                    lending_location: "Alexander Platz Berlin",
                     language: "german",
                     description: "I read two books a day. How I do it? I was fired last month.",
                     profile_pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
@@ -27,6 +27,7 @@ User.create(email: "user2@example.com",
                     first_name: "Friedrich",
                     last_name: "Seibert",
                     location: "Hamburg",
+                    lending_location: "Pariser Platz, 10117 Berlin",
                     language: "german",
                     description: "Current student at Yale, Booklery is great to save costs on textbooks.",
                     profile_pic: "https://images.unsplash.com/photo-1555753838-55c1a93b41a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80")
@@ -36,6 +37,7 @@ User.create(email: "user3@example.com",
                     first_name: "Michael",
                     last_name: "Jackson",
                     location: "Stuttgart",
+                    lending_location: "Gleimstraße 55, 10437 Berlin",
                     language: "english",
                     description: "Former pilot, now retired and spending most of my day on Booklery",
                     profile_pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
@@ -45,6 +47,7 @@ User.create(email: "user4@example.com",
                     first_name: "Heinrich",
                     last_name: "Muller",
                     location: "Munich",
+                    lending_location: "Gleimstraße 55, 10437 Berlin",
                     language: "german",
                     description: "I read two books a day. How I do it? I am reading in my dreams.",
                     profile_pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
@@ -52,16 +55,17 @@ User.create(email: "user4@example.com",
 10.times do
   name = Faker::Internet.username
   new_user = User.create(email: "#{name}@example.com",
-                    password: Faker::Internet.password(min_length: 8),
+                    password: "123456",
                     first_name: Faker::Name.first_name,
                     last_name: Faker::Name.last_name,
                     location: Faker::Address.city,
+                    lending_location: 'Berlin',
                     language: "english",
                     description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.")
 print new_user
   if new_user
     10.times do
-      book = Book.new(title: Faker::Book.title, language: languages.sample, description: "Ipsem lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam velit iste voluptatum enim, ipsa eveniet dolores doloremque quibusdam vitae deserunt pariatur, quaerat alias non porro minus aspernatur dolorem quasi! Aliquam. Ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, necessitatibus perspiciatis natus minima vel architecto! Accusamus quisquam soluta in reiciendis a dolores fugiat sapiente quasi. Ab distinctio neque, possimus voluptatum.", image_url: "https://picsum.photosgit /200")
+      book = Book.new(title: Faker::Book.title, language: languages.sample, description: "Ipsem lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam velit iste voluptatum enim, ipsa eveniet dolores doloremque quibusdam vitae deserunt pariatur, quaerat alias non porro minus aspernatur dolorem quasi! Aliquam. Ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, necessitatibus perspiciatis natus minima vel architecto! Accusamus quisquam soluta in reiciendis a dolores fugiat sapiente quasi. Ab distinctio neque, possimus voluptatum.", image_url: "https://picsum.photos/200")
       book.user = new_user
       book.save
     end
