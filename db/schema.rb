@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 2019_11_21_152622) do
     t.string "language"
     t.text "description"
     t.string "profile_pic", default: "https://cdn.designbyhumans.com/i/S0q2SgMDnZTMIquCovyU0uSSGP2U1OLM9LwY_VJDQ0MzC2MzoGyulZmpQQUQ6yRZGeoUWBkCAA.pr253160-2-2704838.jpg"
-    t.string "profile_picture", default: "image/upload/v1574343472/jhud7dabpplnqwvpfufj.jpg"
     t.float "latitude"
     t.float "longitude"
+    t.string "profile_picture", default: "image/upload/v1574343472/jhud7dabpplnqwvpfufj.jpg"
     t.string "lending_location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

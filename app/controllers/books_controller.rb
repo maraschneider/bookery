@@ -81,6 +81,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
+    redirect_to dashboard_books_path
   end
 
   private
