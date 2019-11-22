@@ -1,7 +1,7 @@
 <div class="container">
   <div class="filter">
   </div>
-  <h4>Books found: <%= @books.count %> results</h4>
+  <h4>Books found: <%= pluralize @books.size, "result" %></h4>
   <div class="results">
   <div class="searchresult">
     <%= render 'books/search_bar' %>
@@ -14,8 +14,8 @@
 
           <div class="col-md-4">
             <img src="<%= book.image_url %>" class="card-img" alt="Search Result">
-          <div class="card-body">
-            <%= link_to "See Book", book_path(book), class: "btn btn-primary" %>
+          <div class="card-body" style="text-align: center;">
+            <%= link_to "See Book", book_path(book), class: "btn btn-outline-secondary" %>
           </div>
           </div>
 
@@ -35,9 +35,11 @@
     </li>
     <% end %>
     </ul>
-    <img src="" alt="">
   </div>
-  <div id="map">  </div>
+  <div id="map"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
   </div>
 </div>
