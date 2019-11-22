@@ -1,7 +1,7 @@
 <div class="profile">
 <div class="container">
 <div class="row p-5">
-  <div class="col-4 border">
+  <div class="col-4 border bg-white">
     <div class="text-center border-bottom">
       <%= cl_image_tag @user.profile_picture.url(:thumnail), class: "avatar-large"%>
     </div>
@@ -26,9 +26,7 @@
     <h1>Hello, I am  <%= @user.first_name %></h1>
     Since <%= @user.created_at.year %> on Booklery
     <h2>Info</h2>
-    <p class="quotes">“</p>
     <p><%= @user.description %></p>
-    <p class="quotes">-</p>
   </div>
   <br>
   <div class=row p-5>

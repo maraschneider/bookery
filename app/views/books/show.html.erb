@@ -8,27 +8,7 @@
   <div class="d-flex justify-content-between">
     <div class="my-3">
       <h3>Reviews</h3>
-      <% if @book.rentals != [] %>
-        <% @book.rentals.each do |rental| %>
-          <% if rental.reviews != [] %>
-            <% rental.reviews.each do |review| %>
-              <% next if review.is_reader = false %>
-              <div class="review-card bg-white p-3 my-3" style="width: 600px">
-                <div>
-                  <% review.rating.times do %>
-                    <i class="far fa-star"></i>
-                  <% end %>
-                </div>
-                <%= review.content %>
-              </div>
-            <% end %>
-          <% else %>
-            <p>No reviews yet</p>
-          <% end %>
-         <% end %>
-      <% else %>
-        <p>No reviews yet</p>
-      <% end %>
+      <%= render 'books/reviews' %>
     </div>
     <div class="bg-white p-3 my-3" style="width: 400px">
       <h3>Availability</h3>
