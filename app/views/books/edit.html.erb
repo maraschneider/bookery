@@ -1,13 +1,28 @@
-<div class="container form my-4">
+<div class="container form my-4" style="width: 500px">
+  <h4>Edit <%= @book.title %></h4>
   <%= simple_form_for(@book) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :author %>
-    <%= f.input :year %>
-    <%= f.input :genre %>
+    <div class="row">
+      <div class="col">
+        <%= f.input :title %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :author %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :year %>
+      </div>
+      <div class="col">
+        <%= f.input :genre %>
+      </div>
+    </div>
     <%= f.input :language %>
     <%= f.input :description %>
-    <%= f.input :image_url %>
+    <%= f.input :book_cover %>
+    <%= f.input :book_cover_cache, as: :hidden %>
     <%= f.submit class:"btn btn-secondary" %>
   <% end %>
-
 </div>
