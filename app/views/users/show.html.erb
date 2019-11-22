@@ -51,8 +51,11 @@
     <h4><%= counter %> reviews</h4>
     <br>
   </div>
-  <div class="row py-3">
-    <%= render 'review' %>
+
+  <div class="row p-5">
+    <% if counter != 0 %>
+      <%= render 'review' %>
+    <% end %>
   </div>
 </div>
 </div>
