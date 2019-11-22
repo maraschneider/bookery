@@ -17,9 +17,11 @@ a:hover {
 }
 
 .review-card {
+  width: 80%;
+  border-radius: 4px;
   background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 10px;
+  box-shadow: 1px 1px 24px rgba(50, 52, 50, 0.1);
+  padding: 16px;
   margin: 16px 0;
   .bookname {
     color: grey;
@@ -50,6 +52,7 @@ a:hover {
 }
 
 .book-card-sm {
+  width: 80%;
   overflow: hidden;
   height: 120px;
   background: white;
@@ -67,8 +70,17 @@ a:hover {
   }
 }
 .grid {
+  width: 80vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   margin: 16px 0;
+}
+
+.card-form {
+  border-radius: 4px;
+  box-shadow: 1px 1px 24px rgba(50, 52, 50, 0.1);
+  padding: 24px;
+  margin: 32px auto;
+  background-color: white;
 }

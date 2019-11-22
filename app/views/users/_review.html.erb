@@ -1,6 +1,7 @@
- <div class="col-6">
+ <div class="grid">
+ <div class="">
   <% if @user.rentals != [] %>
-    <h4>from readers</h4>
+    <h5>from readers</h5>
     <% @user.rentals.each do |rental| %>
       <div class="review-card border-bottom">
         <% if rental.reviews.find_by(is_reader: true) %>
@@ -25,9 +26,9 @@
     <% end %>
   <% end %>
 </div>
-<div class="col-6">
+<div class="">
   <% if @user.books != [] %>
-    <h4>from hosts</h4>
+    <h5>from hosts</h5>
     <% @user.books.each do |book| %>
       <% book.rentals.each do |rental| %>
         <% if rental.reviews.find_by(is_reader: false) %>
@@ -53,4 +54,5 @@
       <% end %>
     <% end %>
   <% end %>
+</div>
 </div>
