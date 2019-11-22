@@ -13,11 +13,11 @@
           <br>
           <div class="card-review-info">
             <div class="px-2">
-              <%= cl_image_tag rental.user.profile_picture.url(:thumnail), class: "avatar"%>
+              <%= cl_image_tag rental.book.user.profile_picture.url(:thumnail), class: "avatar"%>
             </div>
             <div>
-              <p class="username m-0 p-0"><%= rental.user.first_name %></p>
-              <p class="user-since">Since <%= rental.user.created_at.year %> on Booklery</p>
+              <p class="username m-0 p-0"><%= rental.book.user.first_name %></p>
+              <p class="user-since">Since <%= rental.book.user.created_at.year %> on Booklery</p>
             </div>
           </div>
         <% end %>
@@ -41,11 +41,11 @@
             <br>
             <div class="card-review-info">
               <div class="px-2">
-                <%= cl_image_tag rental.book.user.profile_picture.url(:thumnail), class: "avatar"%>
+                <%= cl_image_tag rental.user.profile_picture.url(:thumnail), class: "avatar"%>
               </div>
               <div>
-                <p class="username m-0 p-0"><%= rental.book.user.first_name %></p>
-                <p class="user-since">Since <%= rental.book.user.created_at.year %> on Booklery</p>
+                <p class="username m-0 p-0"><%= rental.user.first_name %></p>
+                <p class="user-since">Since <%= rental.user.created_at.year %> on Booklery</p>
               </div>
             </div>
           </div>

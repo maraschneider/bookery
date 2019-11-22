@@ -20,7 +20,7 @@ a:hover {
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 10px;
-  margin: 3px 0;
+  margin: 16px 0;
   .bookname {
     color: grey;
     font-size: 0.8em;
@@ -30,7 +30,7 @@ a:hover {
     margin-bottom: 0;
   }
   .stars {
-    color: blue;
+    color: $blue;
   }
   .username {
     font-size: 1em;
@@ -70,5 +70,5 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
-  margin: 24px 0;
+  margin: 16px 0;
 }
