@@ -4,6 +4,7 @@
   <h4>Books found: <%= pluralize @books.size, "result" %></h4>
   <div class="results">
   <div class="searchresult">
+    <%= render 'books/search_bar' %>
     <ul>
     <% @books.each do |book| %>
     <li>
