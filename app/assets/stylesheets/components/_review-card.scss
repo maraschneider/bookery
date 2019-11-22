@@ -1,0 +1,28 @@
+.review-card {
+  .bookname {
+    color: grey;
+    font-size: 0.8em;
+    margin-top: 15px;
+    //padding-top: 15px;
+    margin-bottom: 0;
+    margin-bottom: 0;
+  }
+  .stars {
+    color: blue;
+  }
+  .username {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .user-since {
+    color: grey;
+    font-size: 0.8em;
+  }
+  .card-review-info {
+    padding-top: 5px;
+    padding-right: 10px;
+    display: flex;
+    //justify-content: space-between;
+    //align-items: flex-end;
+  }
+}
