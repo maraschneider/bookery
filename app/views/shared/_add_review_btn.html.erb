@@ -1,0 +1,5 @@
+<% if current_user == rental.user %>
+  <%= link_to "Add a review", book_path(rental.book), class: "btn btn-outline-primary my-2", style: "width: 70%"%>
+<% else %>
+  <%= link_to "Add a review",user_path(rental.user), class: "btn btn-outline-primary my-2", style: "width: 70%" %>
+<% end %>

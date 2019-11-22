@@ -6,36 +6,44 @@
       <%= link_to "Change it now", new_book_path, class: "btn btn-outline-secondary m-3" %>
     </div>
   <% else %>
-    <div class="card-kpi">
-      <p>
-        N° of books you are hosting
-        <div class="bold-num"> <%= @no_books %> </div>
-      </p>
-    </div>
+    <%= link_to dashboard_readings_path do  %>
+      <div class="card-kpi">
+        <p>
+          N° of books you are hosting
+          <div class="bold-num"> <%= @no_books %> </div>
+        </p>
+      </div>
+    <% end %>
   <% end %>
   <% if @no_readings != 0 %>
-    <div class="card-kpi ">
-      <p>
-        Total readings
-        <div class="bold-num"><%= @no_readings %></div>
-      </p>
-    </div>
+    <%= link_to dashboard_readings_path do  %>
+      <div class="card-kpi ">
+        <p>
+          N° of your total readings
+          <div class="bold-num"><%= @no_readings %></div>
+        </p>
+      </div>
+    <% end %>
   <% end %>
   <% if @no_hostings != 0 %>
-    <div class="card-kpi">
-      <p>
-        Total hostings
-        <div class="bold-num"><%= @no_hostings %></div>
-      </p>
-    </div>
+    <%= link_to dashboard_hostings_path do  %>
+      <div class="card-kpi">
+        <p>
+          N° of your total hostings
+          <div class="bold-num"><%= @no_hostings %></div>
+        </p>
+      </div>
+    <% end %>
   <% end %>
   <% if @no_requests != [] %>
-    <div class="card-kpi bg-dark">
-      <p>
-        New requests
-        <div class="bold-num"><%= @no_requests.count %></div>
-      </p>
-    </div>
+    <%= link_to dashboard_hostings_path do  %>
+      <div class="card-kpi green">
+        <p>
+          N° of new requests
+          <div class="bold-num"><%= @no_requests.count %></div>
+        </p>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

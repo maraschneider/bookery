@@ -1,0 +1,9 @@
+<% if current_user != rental.user %>
+  <% if rental.status == 'requested' %>
+    <%= link_to "Confirm", edit_rental_path(rental), class: "btn btn-outline-primary my-2", style: "width: 70%" %>
+  <% else %>
+    <%= link_to "Change Status", edit_rental_path(rental), class: "btn btn-outline-secondary my-2", style: "width: 70%" %>
+  <% end %>
+<% else %>
+  <%= link_to "Change Status", edit_rental_path(rental), class: "btn btn-outline-secondary my-2", style: "width: 70%" %>
+<% end %>

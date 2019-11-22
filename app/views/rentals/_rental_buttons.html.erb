@@ -1,0 +1,13 @@
+<% if rental.status == 'canceled' %>
+<% else %>
+  <div>
+    <%= link_to "View Book", book_path(rental.book), class: "btn btn-outline-secondary my-2", style: "width: 70%"%>
+  </div>
+  <div>
+    <% if rental.status == 'closed' %>
+      <%= render 'shared/add_review_btn', rental: rental %>
+    <% else %>
+      <%= render 'shared/change_status_btn', rental: rental %>
+    <% end %>
+  </div>
+<% end %>

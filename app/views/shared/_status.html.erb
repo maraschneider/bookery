@@ -1,8 +1,19 @@
-<% case rental.status %>
-  <% when 'requested' %>
-    <i class="far fa-question-circle"></i>
-  <% when 'cancelled' %>
-    <i class="far fa-times-circle"></i>
-  <% when 'confirmed' %>
-    <i class="far fa-check-circle"></i>
-<% end %>
+<div class="py-2">
+  <% case rental.status %>
+    <% when 'requested' %>
+      <i class="far fa-question-circle" style="font-size: 24px; color: #537ec5"></i>
+       <span style="color: #537ec5">waiting for confirmation</span>
+    <% when 'closed' %>
+      <i class="far fa-check-circle" style="font-size: 24px; color: grey"></i>
+       <span style="color: grey">rental completed</span>
+    <% when 'canceled' %>
+      <i class="far fa-times-circle" style="font-size: 24px; color: grey"></i>
+       <span style="color: grey">rental canceled</span>
+    <% when 'confirmed' %>
+      <i class="far fa-check-circle" style="font-size: 24px; color: #1f6650"></i>
+       <span style="color: #1f6650">rental confirmed</span>
+    <% when 'renting' %>
+      <i class="far fa-check-circle" style="font-size: 24px; color: #1f6650"></i>
+       <span style="color: #1f6650">renting</span>
+    <% end %>
+</div>
