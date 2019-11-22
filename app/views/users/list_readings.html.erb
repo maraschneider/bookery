@@ -1,5 +1,10 @@
 <%= render'users/dashboard_header' %>
 <div class="container my-3">
-<h3>Your Readings</h3>
-  <%= render partial: "rentals/rentals_list", collection: @readings, as: :rental%>
+  <h4>Your Readings</h4>
+  <% if @readings == [] %>
+    <p> No readings yet. </p>
+    <%= link_to "Browse Books", books_path, class: "btn btn-outline-secondary" %>
+  <% else %>
+    <%= render partial: "rentals/rentals_list", collection: @readings, as: :rental%>
+  <% end %>
 </div>
