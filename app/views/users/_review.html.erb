@@ -1,30 +1,38 @@
-
+ <div class="col-6">
   <% if @user.rentals != [] %>
-    <h4>review as reader</h4>
+    <h4>from readers</h4>
     <% @user.rentals.each do |rental| %>
       <div class="review-card border-bottom">
         <% if rental.reviews.find_by(is_reader: true) %>
-          <%= rental.book.title %> from <%= rental.book.user.first_name %> >>
-          <%= rental.reviews.find_by(is_reader: true).rating %> <i class="far fa-star"></i>
+          <%= rental.book.title %> from <%= rental.book.user.first_name %>
+          <br>
+          <% rental.reviews.find_by(is_reader: true).rating.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
           <br>
           <%= rental.reviews.find_by(is_reader: true).content %>
         <% end %>
       </div>
     <% end %>
   <% end %>
-
+</div>
+<div class="col-6">
   <% if @user.books != [] %>
-    <h4>review as host</h4>
+    <h4>from hosts</h4>
     <% @user.books.each do |book| %>
       <% book.rentals.each do |rental| %>
         <% if rental.reviews.find_by(is_reader: false) %>
           <div class="review-card border-bottom">
-            <%= book.title %> to <%= rental.user.first_name %> >>
-            <%= rental.reviews.find_by(is_reader: false).rating %> <i class="far fa-star"></i>
+            <%= book.title %> to <%= rental.user.first_name %>
+            <br>
+            <% rental.reviews.find_by(is_reader: false).rating.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
             <br>
             <%= rental.reviews.find_by(is_reader: false).content %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
+</div>

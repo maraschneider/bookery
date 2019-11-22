@@ -1,26 +1,42 @@
 <%= render'users/dashboard_header' %>
-<div class="container my-3 d-flex justify-content-between">
-  <div class="" style="width: 400px">
-    <div class="card my-3 p-3">
-      <h4>
-        Number of books you are hosting:
-        <%= @no_books %>
-      </h4>
+<div class="container container-kpi">
+  <% if @no_books == 0 %>
+    <div class="card-kpi " >
+      <p>You are currently not hosting any books</p>
+      <%= link_to "Change it now", new_book_path, class: "btn btn-outline-secondary m-3" %>
     </div>
-    <div class="card my-3 p-3">
-      <h4>
-        Total readings:
-        <%= @no_readings %>
-      </h4>
+  <% else %>
+    <div class="card-kpi">
+      <p>
+        N° of books you are hosting
+        <div class="bold-num"> <%= @no_books %> </div>
+      </p>
     </div>
-    <div class="card my-3 p-3">
-      <h4>
-        Total hostings:
-        <%= @no_hostings %>
-      </h4>
+  <% end %>
+  <% if @no_readings != 0 %>
+    <div class="card-kpi ">
+      <p>
+        Total readings
+        <div class="bold-num"><%= @no_readings %></div>
+      </p>
     </div>
-  </div>
+  <% end %>
+  <% if @no_hostings != 0 %>
+    <div class="card-kpi">
+      <p>
+        Total hostings
+        <div class="bold-num"><%= @no_hostings %></div>
+      </p>
+    </div>
+  <% end %>
+  <% if @no_requests != [] %>
+    <div class="card-kpi bg-dark">
+      <p>
+        New requests
+        <div class="bold-num"><%= @no_requests.count %></div>
+      </p>
+    </div>
+  <% end %>
 </div>
-</div>
-</div>
+
 

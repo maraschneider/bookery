@@ -2,7 +2,9 @@
   <div>
     <strong>The Book Host: </strong>
     <%= link_to "#{@book.user.first_name} #{@book.user.last_name}", user_path(@book.user) %>
-    <%= link_to (image_tag @book.user.profile_pic, class: "avatar", alt: "Profile picture"), user_path(@book.user) %>
+    <%= link_to user_path(@book.user) do %>
+      <%= cl_image_tag @book.user.profile_picture.url(:thumnail), class: "avatar-large"%>
+    <% end %>
   </div>
   <!-- TODO: Host-Avatar
   <div></div> -->

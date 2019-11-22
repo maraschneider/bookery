@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_152622) do
     t.string "author"
     t.string "genre"
     t.boolean "rented", default: false
+    t.string "book_cover", default: "image/upload/v1574343472/book_logo_hxmzkd"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_152622) do
     t.float "latitude"
     t.float "longitude"
     t.string "lending_location"
+    t.string "profile_picture", default: "image/upload/v1574343472/jhud7dabpplnqwvpfufj.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

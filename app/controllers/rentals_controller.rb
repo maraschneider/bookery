@@ -1,7 +1,5 @@
 class RentalsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
-  def index
-  end
 
   def show
   end
@@ -9,10 +7,9 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
-
     authorize @rental
     if @rental.save
-      redirect_to rentals_path
+      redirect_to dashboard_readings_path
       flash[:notice] = "Rental of #{@rental.book.title} requested. The host has to confirm the rental."
     else
       render 'books/show'
@@ -26,7 +23,7 @@ class RentalsController < ApplicationController
   def update
     @rental.update(rental_params)
     if @rental.save
-      redirect_to rentals_path
+      redirect_to dashboard_path
     else
       render :edit
     end
