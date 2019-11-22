@@ -23,11 +23,15 @@ class UsersController < ApplicationController
     @hostings = get_hostings
     @no_readings = @readings.count
     @no_hostings = @hostings.count
+    @no_requests = @hostings.select do |hosting|
+      hosting.status == "requested"
+    end
     @no_books = @user.books.count
   end
 
   def list_readings
     @readings = get_readings
+    @closed = @readings.where(status: 'closed')
   end
 
   def list_hostings

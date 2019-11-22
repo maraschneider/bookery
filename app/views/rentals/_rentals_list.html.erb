@@ -1,12 +1,42 @@
-<div class="card p-3 my-3">
-  <div class="container d-flex">
-    <div class="mr-3"><%= cl_image_tag rental.book.book_cover, style: "width: 100px"%></div>
-    <div>
-      <div><strong><%= rental.book.title %></strong></div>
+<div class="card-rental">
+  <div class="row align-items-center justify-content-around">
+    <div class="col-3">
+      <div class="mr-3"><%= cl_image_tag rental.book.book_cover, style: "width: 80px"%></div>
+    </div>
+    <div class="col">
+      <p><strong><%= rental.book.title %></strong></p>
       <div>Rental starts on: <%= rental.start_date %></div>
       <div>Rental ends on: <%= rental.return_date %></div>
-      <div>Status: <%= rental.status %></div>
-      <%= link_to "Change Status", edit_rental_path(rental), class: "btn btn-secondary" %>
+      <div class="py-2">
+        <% case rental.status %>
+          <% when 'requested' %>
+            <i class="far fa-question-circle" style="font-size: 24px; color: orange"></i>
+             waiting for confirmation
+          <% when 'closed' %>
+            <i class="far fa-check-circle" style="font-size: 24px; color: grey"></i>
+            rental completed
+          <% when 'cancelled' %>
+            <i class="far fa-times-circle" style="font-size: 24px; color: grey"></i>
+             rental cancelled
+          <% when 'confirmed' %>
+            <i class="far fa-check-circle" style="font-size: 24px; color: green"></i>
+             rental confirmed
+          <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+        <div>
+        <%= link_to "View Book", book_path(rental.book), class: "btn btn-outline-secondary my-2", style: "width: 70%"%>
+      </div>
+      <div>
+        <%= link_to "Change Status", edit_rental_path(rental), class: "btn btn-outline-secondary my-2", style: "width: 70%" %>
+          <%# if rental.status == 'closed' %>
+            <%# if current_user == rental %>
+            <%# link_to "Add a review", book_path(rental.book) do %>
+
+            <%# end %>
+          <%# end %>
+      </div>
     </div>
   </div>
 </div>

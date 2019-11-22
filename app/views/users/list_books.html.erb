@@ -1,17 +1,17 @@
 <%= render'users/dashboard_header' %>
 <div class="container my-3">
   <% @books.each do |book| %>
-  <div class="card p-3 my-3">
+  <div class="card-rental p-3 my-3">
     <div class="container d-flex">
       <div class="mr-3"><%= cl_image_tag book.book_cover, style: "width: 100px"%></div>
         <div>
-          <div><strong><%= book.title %></strong></div>
-          <div><%= book.author %></div>
-          <%= link_to "View", book_path(book), class: "btn btn-secondary" %>
-          <%= link_to "Edit", edit_book_path(book), class: "btn btn-secondary" %>
+          <p><strong><%= book.title %></strong></p>
+          <p><%= book.author %></p>
+          <%= link_to "View", book_path(book), class: "btn btn-outline-secondary m-2" %>
+          <%= link_to "Edit", edit_book_path(book), class: "btn btn-outline-secondary m-2" %>
           <%= link_to "Delete",@book, method: :delete,
                 data: { confirm: 'Are you sure you want to delete this book?' },
-                class: "btn btn-secondary my-3" %>
+                class: "btn btn-outline-secondary m-2" %>
         </div>
       </div>
     </div>

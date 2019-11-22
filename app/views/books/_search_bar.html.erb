@@ -1,0 +1,11 @@
+<div class="form search-bar" style="background-color:rgba(0, 0, 0, 0.2)">
+  <%= form_tag books_path, method: :get do %>
+  <div class="d-flex justify-content-space-evenly align-items-center">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control", id:"input-bar", placeholder: "try '1984 George Orwell'"
+      %>
+      <%= submit_tag "Refine Search", class: "btn btn-outline-light" %>
+    <% end %>
+  </div>
+</div>
