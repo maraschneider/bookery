@@ -1,11 +1,11 @@
 <div class="profile">
 <div class="container">
 <div class="row p-5">
-  <div class="col-4 border bg-white my-3">
+  <div class="card-white col-4 bg-white my-3 p-4">
     <div class="text-center border-bottom">
       <%= cl_image_tag @user.profile_picture.url(:thumnail), class: "avatar-large"%>
     </div>
-    <p><i class="far fa-star"></i>
+    <p><i class="far fa-star pt-3"></i>
       <% counter = 0 %>
       <% @user.books.each do |book| %>
         <% book.rentals.each do |rental| %>
@@ -23,15 +23,17 @@
   </div>
 
   <div class="col-8 my-3">
-    <h1>Hello, I am  <%= @user.first_name %></h1>
+    <div class="px-3">
+    <h1 class="pb-3">Hello, I am  <%= @user.first_name %></h1>
     Since <%= @user.created_at.year %> on Booklery
-    <h2>Info</h2>
+    <h4 class="pt-3">Info</h4>
     <p><%= @user.description %></p>
+  </div>
   </div>
   <br>
   <div class=row p-5>
-    <div class="col-12 border-bottom">
-      <h2>All of <%= @user.first_name %>'s books</h2>
+    <div class="col-12 border-bottom my-3">
+      <h4>All of <%= @user.first_name %>'s books</h4>
       <div class="grid">
         <% @user.books.each do |book| %>
           <div class="book-card-sm m-1">
@@ -46,7 +48,7 @@
         <% end %>
       </div>
     </div>
-    <h2><%= counter %> reviews</h2>
+    <h4><%= counter %> reviews</h4>
     <br>
   </div>
   <div class="row p-5">
